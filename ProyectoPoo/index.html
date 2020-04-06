@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rápido Ventas</title>
+      
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/all.css"><!--FontAwesome-->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body onload="Bienvenida(), generarLista()">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="paginaPrincipal">
+    <a class="navbar-brand" href="#"><img width="30" height="30" src="img/Logo2.png"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Rápido Ventas<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" id="form_button">
+        <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Iniciar Sesión</button>-->
+      </form>
+    </div>
+  </nav> 
+
+  <main role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container" id="container_principal" >
+        <!-- <h1 class="display-3">Bienvenido a Rápido Ventas!</h1>
+             <p>Informacion sobre la empresa....  This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+             <div></div>
+             <p><a class="btn btn-primary btn-lg" href="#" role="button">Leer más &raquo;</a></p> -->
+      </div>
+    </div>
+  
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row" id="lista-empresas">
+        <!--<div class="col-md-4">
+          <img src="img/img.png" class="card-img-top" alt="...">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-secondary" href="#" role="button">Ver Detalles &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <img src="img/img.png" class="card-img-top" alt="...">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-secondary" href="#" role="button">Ver Detalles &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <img src="img/img.png" class="card-img-top" alt="...">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn btn-secondary" href="#" role="button">Ver Detalles &raquo;</a></p>
+        </div>-->
+      </div>
+  
+      <hr>
+  
+    </div> <!-- /container -->
+  
+  </main>
+  
+  <footer class="container">
+    <p>&copy; Compañia Rápido Ventas 2020</p>
+  </footer>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/controlador_inicio.js"></script>
+    <script src="js/controlador_crearcuenta.js"></script>
+</body>
+</html>
+
+
+<!-- Modal Inicio Sesion-->
+<div class="modal" tabindex="-1" role="dialog" id="modal-inicio">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="title-inicio"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body-" id="modal-body-inicio">
+          
+      </div>
+      <div class="modal-footer" id="footer-inicio">
+        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
