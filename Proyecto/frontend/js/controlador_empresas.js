@@ -270,9 +270,28 @@ function RegistroSucursales(){
         <div id="map">
         
         </div>
-        <h2 id="instruccion" style="display: none;">Mueva el marcador para apuntar la longitud y latitud</h2>
+        <div>
+            <h4>Mueva el marcador para apuntar la longitud y latitud</h4>
+            Selecciona la ciudad para la sucursal:<select id="direccion" type="text" onchange="cambiarPosicionSucursal()">
+                                   
+                                               </select><br>
+            Escrie el nombre de la sucursal:<input value="" id="sucursal" type="text" placeholder="Nombre"><br>
+            Longitud:<input value="" id="longitud" type="text" placeholder="Longitud"><br>
+            Latitud:<input value="" id="latitud" type="text" placeholder="Latitud"><br>
+            <button class="btn btn-outline-success my-2 my-sm-0" id="" type="submit" onclick="guardarSucursal()">Guardar</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" id="" type="submit" onclick="Bienvenida()">Salir</button>
+        </div>
     </div>
     `;
+                 document.getElementById('direccion').innerHTML = '';
+                 for(let i=0;i<basedatos.length;i++){
+                     const base = basedatos[i];
+                     document.getElementById('direccion').innerHTML += 
+                     `
+                     <option value="${i}">${base.ciudad}</option>
+                     `;
+                 }
+                 document.getElementById('direccion').value = '';
     generarMapa();
 }
 
@@ -298,6 +317,24 @@ function generarMapa(){
     })
     .addTo(map)
 
+    if(empresas[parametro1].Sucursales != ''){
+        for(let i=0; i<empresas[parametro1].Sucursales.length; i++){
+            const sucu = empresas[parametro1].Sucursales[i];
+            let element2 = document.createElement('div')
+            element2.className = 'marker1'
+            
+            element2.addEventListener('click', ()=>{
+                window.alert('Esta es la sucursal: ' + sucu.nombreSucursal)
+            })
+            
+            let marker1 = new mapboxgl.Marker(element2).setLngLat({
+                lng: sucu.longitud,
+                lat: sucu.latitud
+            })
+            .addTo(map)
+        }
+    }
+
     var scale = new mapboxgl.ScaleControl({
         maxWidth: 80,
         unit: 'imperial'
@@ -312,6 +349,110 @@ function generarMapa(){
 
     var nav = new mapboxgl.NavigationControl();
     map.addControl(nav, 'top-left');
+
+}
+
+function cambiarPosicionSucursal(){
+    //Este es el marcador en el mapa que guardara la posicion de la nueva sucursal
+    let ciudadSeleccionada = document.querySelector('#direccion').value;
+    console.log(ciudadSeleccionada);
+        map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [basedatos[ciudadSeleccionada].lng, basedatos[ciudadSeleccionada].lat],
+        zoom: 15
+    })
+
+    let element = document.createElement('div')
+    element.className = 'marker'
+    
+    element.addEventListener('click', ()=>{
+        window.alert('Esta es la empresa principal')
+    })
+    
+    let marker = new mapboxgl.Marker(element).setLngLat({
+        lng: empresas[parametro1].Longitud,
+        lat: empresas[parametro1].Latitud
+    })
+    .addTo(map)
+
+    if(empresas[parametro1].Sucursales != ''){
+        for(let i=0; i<empresas[parametro1].Sucursales.length; i++){
+            const sucu = empresas[parametro1].Sucursales[i];
+            let element2 = document.createElement('div')
+            element2.className = 'marker1'
+            
+            element2.addEventListener('click', ()=>{
+                window.alert('Esta es la sucursal' + sucu.nombreSucursal)
+            })
+            
+            let marker1 = new mapboxgl.Marker(element2).setLngLat({
+                lng: sucu.longitud,
+                lat: sucu.latitud
+            })
+            .addTo(map)
+        }
+    }
+
+    var marker2 = new mapboxgl.Marker({
+        color: 'green',
+        draggable: true
+    })
+    .setLngLat([basedatos[ciudadSeleccionada].lng, basedatos[ciudadSeleccionada].lat])
+    .addTo(map);
+     local = marker2.getLngLat();
+    function onDragEnd() {
+    var lngLat = marker2.getLngLat();
+    local = {
+        "lng": lngLat.lng,
+        "lat": lngLat.lat
+    };
+    
+    document.getElementById('longitud').value = local.lng;
+    document.getElementById('latitud').value = local.lat;
+
+    }
+         
+    marker2.on('dragend', onDragEnd);
+
+}
+
+function guardarSucursal(){
+    let sucursalCreada = {
+        codigoEmpresa:empresas[parametro1].codigoEmpresa,
+        codigoSucursal:empresas[parametro1].Sucursales.length + 1,
+        nombreSucursal:document.getElementById('sucursal').value,
+        longitud:document.getElementById('longitud').value,
+        latitud:document.getElementById('latitud').value
+    };
+
+    empresas[parametro1].Sucursales.push(sucursalCreada);
+
+    let guardaremp = {
+        codigoEmpresa: empresas[parametro1].codigoEmpresa,
+        Empresa:empresas[parametro1].Empresa,
+        Pais:empresas[parametro1].Pais,
+        Direccion:empresas[parametro1].Direccion,
+        Latitud:empresas[parametro1].Latitud,
+        Longitud:empresas[parametro1].Longitud,
+        Banner:empresas[parametro1].Banner,
+        Logotipo:empresas[parametro1].Logotipo,
+        Usuario:empresas[parametro1].Usuario,
+        Contrasena:empresas[parametro1].Contrasena,
+        Sucursales:empresas[parametro1].Sucursales,
+        Productos:empresas[parametro1].Productos
+    };
+    axios({
+        method:'PUT',
+        url:url + `?id=${parametro1}`,
+        responseType:'json',
+        data:guardaremp
+      }).then(res=>{
+        console.log(res.data);
+        obtenerEmpresas();
+      }).catch(error=>{
+        console.error(error);
+      });
 }
 
 /*----------------------------Aqui termina Registro Sucursales------------------------------- */
@@ -392,17 +533,190 @@ function modificarlocal2(){
 
 /*----------------------------Aqui empieza Eliminar Sucursales------------------------------- */
 function EliminarSurcursal(){
-    document.getElementById("containerBienvenida").innerHTML = '';
-    document.getElementById("containerBienvenida").innerHTML += 
-           `<h1 class="display-3">Bienvenido a ${empresas[parametro1].Empresa}!</h1>
-            <h3>¿Que sucursal deseas eliminar?<h3>
-           `;
-    document.getElementById("ProductosContenedor").innerHTML = '';
-    
+    if(empresas[parametro1].Sucursales == ''){
+        document.getElementById("containerBienvenida").innerHTML = '';
+        document.getElementById("containerBienvenida").innerHTML += 
+               `<h1 class="display-3">Bienvenido a ${empresas[parametro1].Empresa}!</h1>
+                <h3>No tienes sucursales para eliminar<h3>
+               `;
+        document.getElementById("ProductosContenedor").innerHTML = '';
+        document.getElementById("ProductosContenedor").innerHTML +=
+        `
+        <div id="contenedorMap">
+            <div id="map">
+            
+            </div>
+        </div>
+        `;
+
+        generarMapaElim();
+    }else{
+        document.getElementById("containerBienvenida").innerHTML = '';
+        document.getElementById("containerBienvenida").innerHTML += 
+               `<h1 class="display-3">Bienvenido a ${empresas[parametro1].Empresa}!</h1>
+                <h3>¿Que sucursal deseas eliminar?<h3>
+               `;
+        document.getElementById("ProductosContenedor").innerHTML = '';
+        document.getElementById("ProductosContenedor").innerHTML +=
+        `
+        <div id="contenedorMap">
+            <div id="map">
+            
+            </div>
+            Selecciona la sucursal a eliminar:<select id="sucursal" type="text" onchange="selecElimSucursal()">
+                                       
+                                              </select><br>
+            <button class="btn btn-outline-success my-2 my-sm-0" id="" type="submit" onclick="elimSucursal()">Eliminar</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" id="" type="submit" onclick="Bienvenida()">Salir</button>
+        </div>
+        `;
+        for(let i=0; i<empresas[parametro1].Sucursales.length;i++){
+            const sucu = empresas[parametro1].Sucursales[i];
+            document.getElementById('sucursal').innerHTML += 
+                         `
+                         <option value="${i}">${sucu.nombreSucursal}</option>
+                         `;
+        }
+        document.getElementById('sucursal').value = '';
+        generarMapaElim();
+    }
 }
+
+function generarMapaElim(){
+    //Esto genera el mapa 
+    let map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [empresas[parametro1].Longitud, empresas[parametro1].Latitud],
+        zoom: 15
+    })
+
+    let element = document.createElement('div')
+    element.className = 'marker'
+    
+    element.addEventListener('click', ()=>{
+        window.alert('Esta es la empresa principal')
+    })
+    
+    let marker = new mapboxgl.Marker(element).setLngLat({
+        lng: empresas[parametro1].Longitud,
+        lat: empresas[parametro1].Latitud
+    })
+    .addTo(map)
+
+    if(empresas[parametro1].Sucursales != ''){
+        for(let i=0; i<empresas[parametro1].Sucursales.length; i++){
+            const sucu = empresas[parametro1].Sucursales[i];
+            let element2 = document.createElement('div')
+            element2.className = 'marker1'
+            
+            element2.addEventListener('click', ()=>{
+                window.alert('Esta es la sucursal: ' + sucu.nombreSucursal)
+            })
+            
+            let marker1 = new mapboxgl.Marker(element2).setLngLat({
+                lng: sucu.longitud,
+                lat: sucu.latitud
+            })
+            .addTo(map)
+        }
+    }
+
+    var scale = new mapboxgl.ScaleControl({
+        maxWidth: 80,
+        unit: 'imperial'
+    });
+    map.addControl(scale);
+    
+    scale.setUnit('metric');
+
+    map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('map')}));
+
+    map.boxZoom.enable();
+
+    var nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'top-left');
+
+}
+
+function selecElimSucursal(){
+    //Este es el marcador en el mapa que guardara la posicion de la nueva sucursal
+    let sucursalSeleccionada = document.querySelector('#sucursal').value;
+    console.log(sucursalSeleccionada);
+        map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [empresas[parametro1].Sucursales[sucursalSeleccionada].longitud, empresas[parametro1].Sucursales[sucursalSeleccionada].latitud],
+        zoom: 15
+    })
+
+    let element = document.createElement('div')
+    element.className = 'marker'
+    
+    element.addEventListener('click', ()=>{
+        window.alert('Esta es la empresa principal')
+    })
+    
+    let marker = new mapboxgl.Marker(element).setLngLat({
+        lng: empresas[parametro1].Longitud,
+        lat: empresas[parametro1].Latitud
+    })
+    .addTo(map)
+
+    if(empresas[parametro1].Sucursales != ''){
+        for(let i=0; i<empresas[parametro1].Sucursales.length; i++){
+            const sucu = empresas[parametro1].Sucursales[i];
+            let element2 = document.createElement('div')
+            element2.className = 'marker1'
+            
+            element2.addEventListener('click', ()=>{
+                window.alert('Esta es la sucursal' + sucu.nombreSucursal)
+            })
+            
+            let marker1 = new mapboxgl.Marker(element2).setLngLat({
+                lng: sucu.longitud,
+                lat: sucu.latitud
+            })
+            .addTo(map)
+        }
+    }
+}
+
+function elimSucursal(){
+    let seg = document.getElementById('sucursal').value;
+    empresas[parametro1].Sucursales.splice(seg,1);
+  
+    let guardaremp = {
+        codigoEmpresa: empresas[parametro1].codigoEmpresa,
+        Empresa:empresas[parametro1].Empresa,
+        Pais:empresas[parametro1].Pais,
+        Direccion:empresas[parametro1].Direccion,
+        Latitud:empresas[parametro1].Latitud,
+        Longitud:empresas[parametro1].Longitud,
+        Banner:empresas[parametro1].Banner,
+        Logotipo:empresas[parametro1].Logotipo,
+        Usuario:empresas[parametro1].Usuario,
+        Contrasena:empresas[parametro1].Contrasena,
+        Sucursales:empresas[parametro1].Sucursales,
+        Productos:empresas[parametro1].Productos
+  };
+   axios({
+     method:'PUT',
+     url:url + `?id=${parametro1}`,
+     responseType:'json',
+     data:guardaremp
+   }).then(res=>{
+     console.log(res.data);
+     window.alert("Sucursal eliminada con exito.")
+     EliminarSurcursal();
+   }).catch(error=>{
+     console.error(error);
+   });
+  }
+
 /*----------------------------Aqui termina Eliminar Sucursales------------------------------- */
 
-/*------------------- Esta funcion sirve para eliminar elementos del Carrito --------------------*/
+/*------------------- Esta funcion sirve para eliminar producto --------------------*/
 function EliminarProducto(){
     if(empresas[parametro1].Productos == ""){
         document.getElementById("containerBienvenida").innerHTML = '';
