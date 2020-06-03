@@ -35,6 +35,24 @@ function obtenerProductosComprados(){
 }
 obtenerProductosComprados();
 
+const url3 = '../../Proyecto/backend/api/basedatos.php';
+function obtenerBasedatos(){
+    axios({
+        method:'GET',
+        url:url3,
+        responseType:'json'
+    }).then(res=>{
+        console.log(res.data);
+        this.basedatos = res.data;
+    }).catch(error=>{
+        console.error(error);
+    });
+}
+obtenerBasedatos();
+
+//Llave para MapBox incluir siempre
+mapboxgl.accessToken = 'pk.eyJ1Ijoia2Fpcm96IiwiYSI6ImNrYXdodXl5YjA2eWEzMG53cnoxc3ZhbGwifQ.Lf842_jS0uwqSKaWrjnZ-w';
+
 /*------------------- Esta funcion sirve para salir de la cuenta cliente --------------------*/
 function cerrarCuenta(){
     location.href = "index.html";
@@ -102,10 +120,20 @@ function Bienvenida(){
     document.getElementById("ProductosContenedor").innerHTML = '';
     document.getElementById("ProductosContenedor").innerHTML += 
     `<div class="col-lg-4 col-md-6 col-sm-6 col-12" id="">
+                 <div id="contenedorMap" style="display: none;">
+                     <div id="map">
+                     
+                     </div>
+                     <h2>Mueva el marcador para apuntar la nueva longitud y latitud</h2>
+                 </div>
      <h1>Cambiar Datos <button class="btn btn-outline-success my-2 my-sm-0" id="" type="submit" onclick="Bienvenida()">Salir</button></h1>
                   Empresa:<input value="" id="empresa" type="text" placeholder="Empresa"><br>
-                  Pais:<input value="" id="pais" type="text" placeholder="Pais"><br>
-                  Direccion:<input value="" id="direccion" type="text" placeholder="Direccion"><br>
+                  Pais:<select id="pais" type="text">
+                            <option value="Honduras">Honduras</option>
+                       </select><br>
+                  Direccion:<select id="direccion" type="text" onchange="cambiarPosicion()">
+                               
+                            </select><br>
                   Longitud:<input value="" id="longitud" type="text" placeholder="Longitud"><br>
                   Latitud:<input value="" id="latitud" type="text" placeholder="Latitud"><br>
                   <form id="form1" name="form1" method="POST" enctype="multipart/form-data">
@@ -117,6 +145,14 @@ function Bienvenida(){
      <button class="btn btn-outline-success my-2 my-sm-0" id="" type="submit" onclick="modificarlocal()">Guardar</button>
      </div>
     `;
+                 document.getElementById('direccion').innerHTML = '';
+                 for(let i=0;i<basedatos.length;i++){
+                     const base = basedatos[i];
+                     document.getElementById('direccion').innerHTML += 
+                     `
+                     <option value="${i}">${base.ciudad}</option>
+                     `;
+                 }
        document.getElementById('empresa').value = empresas[parametro1].Empresa;
        document.getElementById('pais').value = empresas[parametro1].Pais;
        document.getElementById('direccion').value = empresas[parametro1].Direccion;
@@ -124,6 +160,62 @@ function Bienvenida(){
        document.getElementById('longitud').value = empresas[parametro1].Longitud;
        document.getElementById('usuario').value = empresas[parametro1].Usuario;
        document.getElementById('contraseña').value = empresas[parametro1].Contrasena;
+}
+
+function cambiarPosicion(){
+    document.getElementById('contenedorMap').style.display = 'block';
+    //Esto genera el mapa 
+    let map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [0, 0],
+        zoom: 15
+    })
+
+    var scale = new mapboxgl.ScaleControl({
+        maxWidth: 80,
+        unit: 'imperial'
+    });
+    map.addControl(scale);
+    
+    scale.setUnit('metric');
+
+    map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('map')}));
+
+    map.boxZoom.enable();
+
+    var nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'top-left');
+
+    let ciudadSeleccionada = document.querySelector('#direccion').value;
+    console.log(ciudadSeleccionada);
+        map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [basedatos[ciudadSeleccionada].lng, basedatos[ciudadSeleccionada].lat],
+        zoom: 15
+    })
+
+    var marker = new mapboxgl.Marker({
+        color: 'green',
+        draggable: true
+    })
+    .setLngLat([basedatos[ciudadSeleccionada].lng, basedatos[ciudadSeleccionada].lat])
+    .addTo(map);
+     local = marker.getLngLat();
+    function onDragEnd() {
+    var lngLat = marker.getLngLat();
+    local = {
+        "lng": lngLat.lng,
+        "lat": lngLat.lat
+    };
+    
+    document.getElementById('longitud').value = local.lng;
+    document.getElementById('latitud').value = local.lat;
+
+    }
+         
+    marker.on('dragend', onDragEnd);
 }
 
 /*------------------- Esta funcion sirve para capturar los datos y guardarlos --------------------*/
@@ -137,7 +229,7 @@ function modificarlocal(){
         codigoEmpresa: empresas[parametro1].codigoEmpresa,
         Empresa:document.getElementById('empresa').value,
         Pais:document.getElementById('pais').value,
-        Direccion:document.getElementById('direccion').value,
+        Direccion:basedatos[document.getElementById('direccion').value].ciudad,
         Latitud:document.getElementById('latitud').value,
         Longitud:document.getElementById('longitud').value,
         Banner:res.data[0],
@@ -172,7 +264,56 @@ function RegistroSucursales(){
             <h3>¿Que sucursal deseas agregar?<h3>
            `;
     document.getElementById("ProductosContenedor").innerHTML = '';
+    document.getElementById("ProductosContenedor").innerHTML +=
+    `
+    <div id="contenedorMap">
+        <div id="map">
+        
+        </div>
+        <h2 id="instruccion" style="display: none;">Mueva el marcador para apuntar la longitud y latitud</h2>
+    </div>
+    `;
+    generarMapa();
 }
+
+function generarMapa(){
+    //Esto genera el mapa 
+    let map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [empresas[parametro1].Longitud, empresas[parametro1].Latitud],
+        zoom: 15
+    })
+
+    let element = document.createElement('div')
+    element.className = 'marker'
+    
+    element.addEventListener('click', ()=>{
+        window.alert('Esta es la empresa principal')
+    })
+    
+    let marker = new mapboxgl.Marker(element).setLngLat({
+        lng: empresas[parametro1].Longitud,
+        lat: empresas[parametro1].Latitud
+    })
+    .addTo(map)
+
+    var scale = new mapboxgl.ScaleControl({
+        maxWidth: 80,
+        unit: 'imperial'
+    });
+    map.addControl(scale);
+    
+    scale.setUnit('metric');
+
+    map.addControl(new mapboxgl.FullscreenControl({container: document.querySelector('map')}));
+
+    map.boxZoom.enable();
+
+    var nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'top-left');
+}
+
 /*----------------------------Aqui termina Registro Sucursales------------------------------- */
 
 /*----------------------------Aqui empieza Registro Productos------------------------------- */
