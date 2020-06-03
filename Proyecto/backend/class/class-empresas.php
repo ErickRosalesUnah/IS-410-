@@ -11,6 +11,7 @@ class Empresas{
     private $Logotipo;
     private $Usuario;
     private $Contraseña;
+    private $Sucursales;
     private $Productos;
 
     public function __construct(
@@ -24,6 +25,7 @@ class Empresas{
         $Logotipo,
         $Usuario,
         $Contraseña,
+        $Sucursales,
         $Productos
     ){
         $this->codigoEmpresa = $codigoEmpresa;
@@ -36,6 +38,7 @@ class Empresas{
         $this->Logotipo = $Logotipo;
         $this->Usuario = $Usuario;
         $this->Contraseña = $Contraseña;
+        $this->Sucursales = $Sucursales;
         $this->Productos = $Productos;
 
     }
@@ -65,6 +68,7 @@ class Empresas{
                 "Logotipo" => $this->Logotipo,
                 "Usuario" => $this->Usuario,
                 "Contrasena" => $this->Contraseña,
+                "Sucursales" => $this->Sucursales,
                 "Productos" => $this->Productos
         );
 
@@ -90,6 +94,7 @@ class Empresas{
             'Logotipo' => $this->Logotipo,
             'Usuario' => $this->Usuario,
             'Contrasena' => $this->Contraseña,
+            'Sucursales' => $this->Sucursales,
             'Productos' => $this->Productos
         );
         $empresas[$indice] = $empresa;
@@ -327,6 +332,26 @@ class Empresas{
     public function setProductos($Productos)
     {
         $this->Productos = $Productos;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Sucursales
+     */ 
+    public function getSucursales()
+    {
+        return $this->Sucursales;
+    }
+
+    /**
+     * Set the value of Sucursales
+     *
+     * @return  self
+     */ 
+    public function setSucursales($Sucursales)
+    {
+        $this->Sucursales = $Sucursales;
 
         return $this;
     }

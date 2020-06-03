@@ -15,6 +15,7 @@
             $_POST['Logotipo'],
             $_POST['Usuario'],
             $_POST['Contrasena'],
+            $_POST['Sucursales'],
             $_POST['Productos']
         );
         $empresa->guardarEmpresa();
@@ -40,6 +41,7 @@
                 $_PUT['Logotipo'],
                 $_PUT['Usuario'],
                 $_PUT['Contrasena'],
+                $_PUT['Sucursales'],
                 $_PUT['Productos']
             );
             $usuario->actualizarEmpresa($_GET['id']);

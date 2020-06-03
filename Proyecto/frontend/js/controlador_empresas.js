@@ -144,6 +144,7 @@ function modificarlocal(){
         Logotipo:res.data[1],
         Usuario:document.getElementById('usuario').value,
         Contrasena:document.getElementById('contraseña').value,
+        Sucursales:empresas[parametro1].Sucursales,
         Productos:empresas[parametro1].Productos
     };
     axios({
@@ -227,6 +228,7 @@ function modificarlocal2(){
         Logotipo:empresas[parametro1].Logotipo,
         Usuario:empresas[parametro1].Usuario,
         Contrasena:empresas[parametro1].Contrasena,
+        Sucursales:empresas[parametro1].Sucursales,
         Productos:empresas[parametro1].Productos
     };
     axios({
@@ -334,6 +336,7 @@ function elimProducto(seg){
         Logotipo:empresas[parametro1].Logotipo,
         Usuario:empresas[parametro1].Usuario,
         Contrasena:empresas[parametro1].Contrasena,
+        Sucursales:empresas[parametro1].Sucursales,
         Productos:empresas[parametro1].Productos
   };
    axios({
@@ -437,6 +440,7 @@ function modificarlocal3(numpro){
         Logotipo:empresas[parametro1].Logotipo,
         Usuario:empresas[parametro1].Usuario,
         Contrasena:empresas[parametro1].Contrasena,
+        Sucursales:empresas[parametro1].Sucursales,
         Productos:empresas[parametro1].Productos
     };
     axios({
