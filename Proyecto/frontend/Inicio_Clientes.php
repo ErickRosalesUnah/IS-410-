@@ -104,6 +104,7 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/axios.min.js"></script>
+    <script src="js/jspdf.min.js"></script>
     <script src="js/controlador_clientes.js"></script>
 </body>
 </html>

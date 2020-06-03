@@ -642,15 +642,38 @@ function proCompra(){
        document.getElementById("ContenedorCliente").innerHTML += 
        `<div class="col-lg-4 col-md-6 col-sm-6 col-12" id="producto${i}">
            <img src="${listcomp.imagen}" class="card-img-top" alt="...">
-           <h2>${listcomp.NombreProducto}</h2>
-           <p>${listcomp.Descripcion}</p>
-           <p>Precio: Lps.${listcomp.Precio}</p>
-           <p>Precio de Promocion: Lps.${listcomp.PrecioPromocion}</p>
-           <p>Promocion:Descuento de ${listcomp.Promocion}</p>
+           <div id="pdf">
+              <h2>${listcomp.NombreProducto}</h2>
+              <p>${listcomp.Descripcion}</p>
+              <p>Precio: Lps.${listcomp.Precio}</p>
+              <p>Precio de Promocion: Lps.${listcomp.PrecioPromocion}</p>
+              <p>Promocion:Descuento de ${listcomp.Promocion}</p>
+              </div>
+           <button class="btn btn-primary my-2 my-sm-0" type="button" onclick="recibo(${i});">Imprimir Recibo</button>
         </div>
+        <div id="elementH"></div>
        `;
       }
     }
+}
+
+function recibo(valor){
+  console.log(valor);
+  var doc = new jsPDF();
+    var elementHTML = $('#pdf').html();
+    var specialElementHandlers = {
+        '#elementH' : function(element, renderer){
+            return true;
+        }
+    };
+
+    doc.fromHTML(elementHTML, 15, 15, {
+        'width' : 170,
+        'elementHandlers' : specialElementHandlers
+    });
+
+    //Save document PDf
+    doc.save(produComp[valor].NombreProducto +'-document.pdf');
 }
 
 /*------------------- Esta funcion sirve para ver las promociones atraves de google --------------------*/
