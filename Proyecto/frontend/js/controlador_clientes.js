@@ -122,6 +122,7 @@ function cambiarDatos(){
       <h1>Cambiar Datos <button class="btn btn-outline-success my-2 my-sm-0" id="" type="submit" href="index.html" onclick="generarDatos()">Salir</button></h1>
                  Nombre:<input value="" id="nombre" type="text" placeholder="Usuario"><br>
                  Apellido:<input value="" id="apellido" type="text" placeholder="Usuario"><br>
+                 Correo Electronico:<input value="" id="correo" type="text" placeholder="Correo"><br>
                  Edad:<input id="edad" type="number" name="numero" value="0" min="0" max="100" step="1"><br>
                  Pais:<input value="" id="pais" type="text" placeholder="Usuario"><br>
                  Ciudad:<input value="" id="ciudad" type="text" placeholder="Usuario"><br>
@@ -134,6 +135,7 @@ function cambiarDatos(){
       `;
         document.getElementById('nombre').value = usuarios[parametro1].Nombre;
         document.getElementById('apellido').value = usuarios[parametro1].Apellido;
+        document.getElementById('correo').value = usuarios[parametro1].Correo;
         document.getElementById('edad').value = usuarios[parametro1].Edad;
         document.getElementById('pais').value = usuarios[parametro1].Pais;
         document.getElementById('ciudad').value = usuarios[parametro1].Ciudad;
@@ -149,6 +151,7 @@ function modificarlocal(){
         codigoUsuario: usuarios[parametro1].codigoUsuario,
         Nombre:document.getElementById('nombre').value,
         Apellido:document.getElementById('apellido').value,
+        Correo:document.getElementById('correo').value,
         Edad:document.getElementById('edad').value,
         Pais:document.getElementById('pais').value,
         Ciudad:document.getElementById('ciudad').value,
@@ -314,163 +317,85 @@ function Comentarios(valor){
       <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Comenta" id="comentario">
           <div class="input-group-append">
-              <button type="button" onclick="respuestaCom(${comen})" class="btn btn-outline-danger"><i class="far fa-paper-plane"></i></button>
+              <button type="button" onclick="comentar(${comen})" class="btn btn-outline-danger"><i class="far fa-paper-plane"></i></button>
           </div>
       </div>
       </p>
       <ul id="comments-list" class="comments-list">
       </ul>
   </div>`;
-  
-  for(let i=0;i<historialComentarios.length;i++){
-    let comm = historialComentarios[i];
-    document.getElementById("comments-list").innerHTML +=  
-    `
-    <li id="lista_comentarios${i}">
-    <div class="comment-main-level">
-      <!-- Avatar -->
-      <div class="comment-avatar"><img src="${comm.imagenC}" alt=""></div>
-      <!-- Contenedor Comentario -->
-      <div class="comment-box">
-        <div class="comment-head">
-          <h6 class="comment-name by-author"><a href="">${comm.NombreComentario} ${comm.ApellidoComentario}</a></h6>
-          <span>hace ${comm.Tiempo}min</span>
-          <i class="fas fa-reply"></i>
-          <i class="fas fa-heart"></i>
-        </div>
-        <div class="comment-content">
-        ${comm.Principal}
-        </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Comenta" id="comentario${i + 1}">
-          <div class="input-group-append">
-              <button type="button" onclick="respuestaCom2(${i}, ${comen})" class="btn btn-outline-danger"><i class="far fa-paper-plane"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    </li>
-    `;
-    for(let j=0;j<comm.ComentarioS.length;j++){
-      let comentarioS = comm.ComentarioS[j];
-      document.getElementById("lista_comentarios"+i).innerHTML += 
-              `
-               <!-- Respuestas de los comentarios -->
-                <ul class="comments-list reply-list">  
-                <li>
-                <!-- Avatar -->
-                <div class="comment-avatar"><img src="${comentarioS.imagenC}" alt=""></div>
-                <!-- Contenedor Comentario -->
+          document.getElementById("comments-list").innerHTML = '';
+          for(let i=0;i<historialComentarios.length;i++){
+            const comment = historialComentarios[i];
+            document.getElementById("comments-list").innerHTML += 
+            `<li id="lista_comentarios">
+                <div class="comment-main-level">
+                  <!-- Avatar -->
+                  <div class="comment-avatar"><img src="${comment.imagenC}" alt=""></div>
+                  <!-- Contenedor Comentario -->
                   <div class="comment-box">
-                <div class="comment-head">
-                 <h6 class="comment-name"><a href="">${comentarioS.NombreComentarioS} ${comentarioS.ApellidoComentarioS}</a></h6>
-                <span>hace ${comentarioS.Tiempo}min</span>
-                 <i class="fas fa-reply"></i>
-                <i class="fas fa-heart"></i>
+                    <div class="comment-head">
+                      <h6 class="comment-name by-author"><a href="">${comment.NombreComentario} ${comment.ApellidoComentario}</a></h6>
+                      <span>hace ${comment.Tiempo}min</span>
+                      <i class="fas fa-reply"></i>
+                      <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="comment-content">
+                    ${comment.Principal}
+                    </div>
+                  </div>
                 </div>
-                <div class="comment-content">
-                    ${comentarioS.Secundario}
-                </div>
-                </div>
-                </li>
-                </ul>
-               `;
-      }
-  }
+            </li>
+            `;
+          }
 
 }
 
-/*------------------- Esta funcion sirve para las respuestas a los comentarios principales --------------------*/
-function respuestaCom(valor){
-   let comentarioCreado = {
-          codigoEmpresa: empresas[arregloProduc].codigoEmpresa,
-          codigoProducto: empresas[arregloProduc].Productos[valor].codigoProducto,
-          codigoComentario: comentariosJSON.length + 1,
-          NombreComentario: usuarios[parametro1].Nombre,
-          ApellidoComentario: usuarios[parametro1].Apellido,
-          imagenC: usuarios[parametro1].Foto,
-          Tiempo: 1,
-          Principal: document.getElementById('comentario').value,
-          ComentarioS:[]
-      };
-    const param = comentariosJSON.length;
-      axios({
-        method:'PUT',
-        url:url2 + `?id=${param}`,
-        responseType:'json',
-        data:comentarioCreado
+function comentar(valor){
+  let historialComentarios = comentariosJSON.filter(item=>{
+    return item.codigoEmpresa == empresas[arregloProduc].codigoEmpresa && item.codigoProducto == empresas[parametro1].Productos[valor].codigoProducto;
+  });
+
+  axios({
+    url:'../backend/api/comentarios.php',
+    method:'post',
+    responseType: 'json',
+    data:{
+        codigoEmpresa: empresas[arregloProduc].codigoEmpresa,
+        codigoProducto: empresas[arregloProduc].Productos[valor].codigoProducto,
+        codigoComentario: historialComentarios.length + 1,
+        NombreComentario: usuarios[parametro1].Nombre,
+        ApellidoComentario: usuarios[parametro1].Apellido,
+        imagenC: usuarios[parametro1].Foto,
+        Tiempo: 1,
+        Principal: document.getElementById('comentario').value,
+        ComentarioS: []
+    }
     }).then(res=>{
-        console.log(res.data);
+        console.log(res);
         obtenerCometarios();
-        opcionesProductos(valor);
-        /*document.getElementById("comments-list").innerHTML +=  
-    `
-    <li id="lista_comentarios${param}">
-    <div class="comment-main-level">
-      <!-- Avatar -->
-      <div class="comment-avatar"><img src="${usuarios[parametro1].Foto}" alt=""></div>
-      <!-- Contenedor Comentario -->
-      <div class="comment-box">
-        <div class="comment-head">
-          <h6 class="comment-name by-author"><a href="">${usuarios[parametro1].NombreComentario} ${usuarios[parametro1].ApellidoComentario}</a></h6>
-          <span>hace ${1}min</span>
-          <i class="fas fa-reply"></i>
-          <i class="fas fa-heart"></i>
-        </div>
-        <div class="comment-content">
-        ${document.getElementById('comentario').value}
-        </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Comenta" id="comentario${param + 1}">
-          <div class="input-group-append">
-              <button type="button" onclick="respuestaCom2(${param}, ${valor})" class="btn btn-outline-danger"><i class="far fa-paper-plane"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    </li>
-    `;*/
+        document.getElementById('comments-list').innerHTML +=
+                 `<li id="lista_comentarios">
+                 <div class="comment-main-level">
+                   <!-- Avatar -->
+                   <div class="comment-avatar"><img src="${usuarios[parametro1].Foto}" alt=""></div>
+                   <!-- Contenedor Comentario -->
+                   <div class="comment-box">
+                     <div class="comment-head">
+                       <h6 class="comment-name by-author"><a href="">${usuarios[parametro1].Nombre} ${usuarios[parametro1].Apellido}</a></h6>
+                       <span>hace ${1}min</span>
+                       <i class="fas fa-reply"></i>
+                       <i class="fas fa-heart"></i>
+                     </div>
+                     <div class="comment-content">
+                     ${document.getElementById('comentario').value}
+                     </div>
+                   </div>
+                 </div>
+                </li>`;
     }).catch(error=>{
         console.error(error);
-    });
-}
-
-/*------------------- Esta funcion sirve para las respuestas a los comentarios secundarios --------------------*/
-function respuestaCom2(valor, comen){
-  let segComentario = {
-    codigoComentarioS: comentariosJSON[valor].ComentarioS.length + 1,
-    NombreComentarioS: usuarios[parametro1].Nombre,
-    ApellidoComentarioS: usuarios[parametro1].Apellido,
-    imagenC: usuarios[parametro1].Foto,
-    Tiempo: 1,
-    Secundario: document.getElementById('comentario'+(valor+1)).value
-   };
-
-   comentariosJSON[valor].ComentarioS.push(segComentario);
-
-   let guardarCom = {
-    codigoEmpresa: comentariosJSON[valor].codigoEmpresa,
-    codigoProducto: comentariosJSON[valor].codigoProducto,
-    codigoComentario: comentariosJSON[valor].codigoComentario,
-    NombreComentario: comentariosJSON[valor].NombreComentario,
-    ApellidoComentario: comentariosJSON[valor].ApellidoComentario,
-    imagenC: comentariosJSON[valor].imagenC,
-    Tiempo: comentariosJSON[valor].Tiempo,
-    Principal: comentariosJSON[valor].Principal,
-    ComentarioS:comentariosJSON[valor].ComentarioS
-};
- axios({
-   method:'PUT',
-   url:url2 + `?id=${valor}`,
-   responseType:'json',
-   data:guardarCom
- }).then(res=>{
-   console.log(res.data);
-   obtenerCometarios();
-   opcionesProductos(comen);
- }).catch(error=>{
-   console.error(error);
- });
+    }); 
 }
 
 /*------------------- Esta funcion sirve para ver las promociones favoritas en la opcion del dropdown --------------------*/

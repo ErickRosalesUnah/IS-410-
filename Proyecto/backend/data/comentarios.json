@@ -8,24 +8,7 @@
     "imagenC": "img/Usuarios/Persona2.jpg",
     "Tiempo": 10,
     "Principal": "Este articulo me parece bonito me gustaria que pusieran mas articulos en promocion de este tipo",
-    "ComentarioS": [
-      {
-        "codigoComentarioS": 1,
-        "NombreComentarioS": "Jose",
-        "ApellidoComentarioS": "Rosales",
-        "imagenC": "img/Usuarios/Persona1.jpg",
-        "Tiempo": 15,
-        "Secundario": "Ya tienen mas articulos en promocion en su perfil"
-      },
-      {
-        "codigoComentarioS": 2,
-        "NombreComentarioS": "Helen",
-        "ApellidoComentarioS": "Fuentes",
-        "imagenC": "img/Usuarios/Persona2.jpg",
-        "Tiempo": 16,
-        "Secundario": "Es bueno saber que revisan los comentarios"
-      }
-    ]
+    "ComentarioS": []
   },
   {
     "codigoEmpresa": 1,

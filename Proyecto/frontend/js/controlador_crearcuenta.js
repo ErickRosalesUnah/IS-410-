@@ -141,6 +141,7 @@ function formulario(parametro){
                  </div>
                  <h2>${tipoCuentas[parametro].tipo}</h2>
                  Empresa:<input value="" id="empresa" type="text" placeholder="Empresa"><br>
+                 Correo Electronico:<input value="" id="correo" type="text" placeholder="Correo"><br>
                  Pais:<select id="pais" type="text">
                             <option value="Honduras">Honduras</option>
                       </select><br>
@@ -281,6 +282,7 @@ function guardarEmpresas(emp){
     let guardaremp = {
         codigoEmpresa: empresas.length + 1,
         Empresa:document.getElementById('empresa').value,
+        Correo:document.getElementById('correo').value,
         Pais:document.getElementById('pais').value,
         Direccion:basedatos[document.getElementById('direccion').value].ciudad,
         Latitud:document.getElementById('latitud').value,

@@ -27,7 +27,19 @@
     "Foto": "img/Usuarios/Persona2.jpg",
     "Usuario": "helfue25",
     "Contrasena": "helfue25",
-    "PromocionesFavoritas": [],
+    "PromocionesFavoritas": [
+      {
+        "codigoEmpresa": 1,
+        "Empresa": "Todo en Zapatos",
+        "codigoProducto": 1,
+        "imagen": "img/Zapatos/Zapato1.jpg",
+        "NombreProducto": "Zapato Beige",
+        "Descripcion": "Zapato de cuero color beige con una textura rugosa por fuera, la parte interior es muy comoda y su peso es ligero",
+        "Precio": 1500,
+        "PrecioPromocion": 1300,
+        "Promocion": "20%"
+      }
+    ],
     "EmpresasFavoritas": [],
     "Compras": []
   },
