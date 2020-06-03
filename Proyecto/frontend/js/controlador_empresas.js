@@ -1,5 +1,14 @@
-var client = JSON.parse(localStorage.getItem('datosuser'));
-var parametro1 = client[0].primerApendice;
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+var parametro1 = getCookie("codigoEmpresa") - 1;
 var pri;
 
 var empresas = [];
@@ -53,26 +62,20 @@ obtenerBasedatos();
 //Llave para MapBox incluir siempre
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2Fpcm96IiwiYSI6ImNrYXdodXl5YjA2eWEzMG53cnoxc3ZhbGwifQ.Lf842_jS0uwqSKaWrjnZ-w';
 
-/*------------------- Esta funcion sirve para salir de la cuenta cliente --------------------*/
-function cerrarCuenta(){
-    location.href = "index.html";
-    localStorage.removeItem('datosuser');
-}
 
 /*------------------- Esta funcion sirve para generar el boton de cerrar la cuenta --------------------*/
 function generarBotonsalir(){
     document.getElementById("form-empresas").innerHTML = '';
     document.getElementById("form-empresas").innerHTML += 
     `
-        <button class="btn btn-outline-success my-2 my-sm-0" id="preventbutton" type="submit" href="index.html" onclick="cerrarCuenta()">Cerrar Cuenta</button>
+    <button class="btn btn-primary my-2 my-sm-0" type="button" onclick="cerrar()">Cerrar</button>  
     `;
   }
   generarBotonsalir();
-  
-/*------------------- Esta funcion sirve para descactivar el refresh en los botones --------------------*/
-document.getElementById("preventbutton").addEventListener("click", function(event){
-    event.preventDefault()
-  });
+
+function cerrar(){
+  window.location.href = "logoutEmpresa.php"; 
+}
 
 function Bienvenida(){
       document.getElementById("containerBienvenida").innerHTML = '';

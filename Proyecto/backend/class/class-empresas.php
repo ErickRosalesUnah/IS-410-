@@ -3,6 +3,7 @@
 class Empresas{
     private $codigoEmpresa;
     private $Empresa;
+    private $Correo;
     private $Pais;
     private $Direccion;
     private $Latitud;
@@ -10,13 +11,14 @@ class Empresas{
     private $Banner;
     private $Logotipo;
     private $Usuario;
-    private $Contraseña;
+    private $Contrasena;
     private $Sucursales;
     private $Productos;
 
     public function __construct(
         $codigoEmpresa,
         $Empresa,
+        $Correo,
         $Pais,
         $Direccion,
         $Latitud,
@@ -24,12 +26,13 @@ class Empresas{
         $Banner,
         $Logotipo,
         $Usuario,
-        $Contraseña,
+        $Contrasena,
         $Sucursales,
         $Productos
     ){
         $this->codigoEmpresa = $codigoEmpresa;
         $this->Empresa = $Empresa;
+        $this->Correo = $Correo;
         $this->Pais = $Pais;
         $this->Direccion = $Direccion;
         $this->Latitud = $Latitud;
@@ -37,7 +40,7 @@ class Empresas{
         $this->Banner = $Banner;
         $this->Logotipo = $Logotipo;
         $this->Usuario = $Usuario;
-        $this->Contraseña = $Contraseña;
+        $this->Contrasena = $Contrasena;
         $this->Sucursales = $Sucursales;
         $this->Productos = $Productos;
 
@@ -60,6 +63,7 @@ class Empresas{
         $empresas[] = array(
                 "codigoEmpresa" => $this->codigoEmpresa,
                 "Empresa" => $this->Empresa,
+                "Correo" => $this->Correo,
                 "Pais" => $this->Pais,
                 "Direccion" => $this->Direccion,
                 "Latitud" => $this->Latitud,
@@ -67,7 +71,7 @@ class Empresas{
                 "Banner" => $this->Banner,
                 "Logotipo" => $this->Logotipo,
                 "Usuario" => $this->Usuario,
-                "Contrasena" => $this->Contraseña,
+                "Contrasena" => $this->Contrasena,
                 "Sucursales" => $this->Sucursales,
                 "Productos" => $this->Productos
         );
@@ -86,6 +90,7 @@ class Empresas{
         $empresa = array(
             'codigoEmpresa' => $this->codigoEmpresa,
             'Empresa' => $this->Empresa,
+            'Correo' => $this->Correo,
             'Pais' => $this->Pais,
             'Direccion' => $this->Direccion,
             'Latitud' => $this->Latitud,
@@ -93,7 +98,7 @@ class Empresas{
             'Banner' => $this->Banner,
             'Logotipo' => $this->Logotipo,
             'Usuario' => $this->Usuario,
-            'Contrasena' => $this->Contraseña,
+            'Contrasena' => $this->Contrasena,
             'Sucursales' => $this->Sucursales,
             'Productos' => $this->Productos
         );
@@ -152,6 +157,26 @@ class Empresas{
     public function setEmpresa($Empresa)
     {
         $this->Empresa = $Empresa;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Correo
+     */ 
+    public function getCorreo()
+    {
+        return $this->Correo;
+    }
+
+    /**
+     * Set the value of Correo
+     *
+     * @return  self
+     */ 
+    public function setCorreo($Correo)
+    {
+        $this->Correo = $Correo;
 
         return $this;
     }
@@ -299,9 +324,9 @@ class Empresas{
     /**
      * Get the value of Contraseña
      */ 
-    public function getContraseña()
+    public function getContrasena()
     {
-        return $this->Contraseña;
+        return $this->Contrasena;
     }
 
     /**
@@ -309,9 +334,9 @@ class Empresas{
      *
      * @return  self
      */ 
-    public function setContraseña($Contraseña)
+    public function setContrasena($Contrasena)
     {
-        $this->Contraseña = $Contraseña;
+        $this->Contrasena = $Contrasena;
 
         return $this;
     }
@@ -355,6 +380,18 @@ class Empresas{
 
         return $this;
     }
+
+    public static function verificarEmpresas($email, $password){
+        $contenidoArchivoUsuarios = file_get_contents('../data/empresas.json');
+        $empresa = json_decode($contenidoArchivoUsuarios, true);
+        for($i=0; $i<sizeof($empresa); $i++){
+            if($empresa[$i]["Correo"]==$email && $empresa[$i]["Contrasena"]==$password){
+                return $empresa[$i];
+            }
+        }
+        return null;
+    }
+
 }
 
 ?>
