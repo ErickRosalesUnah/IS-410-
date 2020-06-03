@@ -2,6 +2,7 @@
   {
     "codigoSuperUsuario": 1,
     "superAdministrador": "Super Administrador",
+    "Correo": "superusuario@gmail.com",
     "usuario": "superusuario1",
     "contrasena": "superusuario1"
   }

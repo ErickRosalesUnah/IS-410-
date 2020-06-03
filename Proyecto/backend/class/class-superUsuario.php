@@ -3,17 +3,20 @@
 class SuperUsuario{
     private $codigoSuperUsuario;
     private $superAdministrador;
+    private $Correo;
     private $usuario;
     private $contrasena;
 
     public function __construct(
         $codigoSuperUsuario,
         $superAdministrador,
+        $Correo,
         $usuario,
         $contrasena
     ){
         $this->codigoSuperUsuario = $codigoSuperUsuario;
         $this->superAdministrador = $superAdministrador;
+        $this->Correo = $Correo;
         $this->usuario = $usuario;
         $this->contrasena = $contrasena;
     }
@@ -35,6 +38,7 @@ class SuperUsuario{
         $superUsuario[] = array(
             "codigoSuperUsuario" => $this->codigoSuperUsuario,
             "superAdministrador" => $this->superAdministrador,
+            "Correo" => $this->Correo,
             "usuario" => $this->usuario,
             "contrasena" => $this->contrasena
         );
@@ -53,6 +57,7 @@ class SuperUsuario{
         $superUsuario = array(
                'codigoSuperUsuario' => $this->codigoSuperUsuario,
                'superAdministrador' => $this->superAdministrador,
+               'Correo' => $this->Correo,
                'usuario' => $this->usuario,
                'contrasena' => $this->contrasena
         );
@@ -116,6 +121,26 @@ class SuperUsuario{
     }
 
     /**
+     * Get the value of Correo
+     */ 
+    public function getCorreo()
+    {
+        return $this->Correo;
+    }
+
+    /**
+     * Set the value of Correo
+     *
+     * @return  self
+     */ 
+    public function setCorreo($Correo)
+    {
+        $this->Correo = $Correo;
+
+        return $this;
+    }
+
+    /**
      * Get the value of usuario
      */ 
     public function getUsuario()
@@ -136,7 +161,7 @@ class SuperUsuario{
     }
 
     /**
-     * Get the value of contraseña
+     * Get the value of contrasena
      */ 
     public function getContrasena()
     {
@@ -144,7 +169,7 @@ class SuperUsuario{
     }
 
     /**
-     * Set the value of contraseña
+     * Set the value of contrasena
      *
      * @return  self
      */ 
@@ -154,6 +179,20 @@ class SuperUsuario{
 
         return $this;
     }
+
+    public static function verificarSuperUsuario($email, $password){
+        $contenidoArchivoUsuarios = file_get_contents('../data/superUsuario.json');
+        $usuarios = json_decode($contenidoArchivoUsuarios, true);
+        for($i=0; $i<sizeof($usuarios); $i++){
+            if($usuarios[$i]["Correo"]==$email && $usuarios[$i]["contrasena"]==$password){
+                return $usuarios[$i];
+            }
+        }
+        return null;
+    }
+
+
+    
 }
 
 ?>

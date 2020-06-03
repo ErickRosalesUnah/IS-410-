@@ -1,6 +1,14 @@
-var client = JSON.parse(localStorage.getItem('datosuser'));
-var parametro1 = client[0].primerApendice;
-
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+  }
+var parametro1 = getCookie("codigoSuperUsuario") - 1;
 var empresas = [];
 const url = '../../Proyecto/backend/api/empresas.php';
 function obtenerEmpresas(){
@@ -35,8 +43,7 @@ obtenerUsuarios();
 
 /*------------------- Esta funcion sirve para salir de la cuenta cliente --------------------*/
 function cerrarCuenta(){
-    location.href = "index.html";
-    localStorage.removeItem('datosuser');
+    window.location.href = "logoutSuperUsuario.php"; 
 }
 
 /*------------------- Esta funcion sirve para generar el boton de cerrar la cuenta --------------------*/
@@ -44,15 +51,10 @@ function generarBotonsalir(){
     document.getElementById("form-super").innerHTML = '';
     document.getElementById("form-super").innerHTML += 
     `
-        <button class="btn btn-outline-success my-2 my-sm-0" id="preventbutton" type="submit" href="index.html" onclick="cerrarCuenta()">Cerrar Cuenta</button>
+    <button class="btn btn-primary my-2 my-sm-0" type="button" onclick="cerrarCuenta()">Cerrar</button> 
     `;
 }
 generarBotonsalir();
-
-/*------------------- Esta funcion sirve para descactivar el refresh en los botones --------------------*/
-document.getElementById("preventbutton").addEventListener("click", function(event){
-    event.preventDefault()
-  });
 
 function generarDatos(){
     document.getElementById("bienvenida").innerHTML = '';
