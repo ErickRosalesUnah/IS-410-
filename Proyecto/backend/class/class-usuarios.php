@@ -4,13 +4,14 @@ class Usuario{
     private $codigoUsuario;
     private $Nombre;
     private $Apellido;
+    private $Correo;
     private $Edad;
     private $Pais;
     private $Ciudad;
     private $Genero;
     private $Foto;
     private $Usuario;
-    private $Contraseña;
+    private $Contrasena;
     private $PromocionesFavoritas;
     private $EmpresasFavoritas;
     private $Compras;
@@ -19,13 +20,14 @@ class Usuario{
         $codigoUsuario,
         $Nombre,
         $Apellido,
+        $Correo,
         $Edad,
         $Pais,
         $Ciudad,
         $Genero,
         $Foto,
         $Usuario,
-        $Contraseña,
+        $Contrasena,
         $PromocionesFavoritas,
         $EmpresasFavoritas,
         $Compras
@@ -34,13 +36,14 @@ class Usuario{
         $this->codigoUsuario = $codigoUsuario;
         $this->Nombre = $Nombre;
         $this->Apellido = $Apellido;
+        $this->Correo = $Correo;
         $this->Edad = $Edad;
         $this->Pais = $Pais;
         $this->Ciudad = $Ciudad;
         $this->Genero = $Genero;
         $this->Foto = $Foto;
         $this->Usuario = $Usuario;
-        $this->Contraseña = $Contraseña;
+        $this->Contrasena = $Contrasena;
         $this->PromocionesFavoritas = $PromocionesFavoritas;
         $this->EmpresasFavoritas = $EmpresasFavoritas;
         $this->Compras = $Compras;
@@ -66,13 +69,14 @@ class Usuario{
             "codigoUsuario" => $this->codigoUsuario,
             "Nombre" => $this->Nombre,
             "Apellido" => $this->Apellido,
+            "Correo" => $this->Correo,
             "Edad" => $this->Edad,
             "Pais" => $this->Pais,
             "Ciudad" => $this->Ciudad,
             "Genero" => $this->Genero,
             "Foto" => $this->Foto,
             "Usuario" => $this->Usuario,
-            "Contrasena" => $this->Contraseña,
+            "Contrasena" => $this->Contrasena,
             "PromocionesFavoritas" => $this->PromocionesFavoritas,
             "EmpresasFavoritas" => $this->EmpresasFavoritas,
             "Compras" => $this->Compras
@@ -93,13 +97,14 @@ class Usuario{
                'codigoUsuario' => $this->codigoUsuario,
                'Nombre' => $this->Nombre,
                'Apellido' => $this->Apellido,
+               'Correo' => $this->Correo,
                'Edad' => $this->Edad,
                'Pais' => $this->Pais,
                'Ciudad' => $this->Ciudad,
                'Genero' => $this->Genero,
                'Foto' => $this->Foto,
                'Usuario' => $this->Usuario,
-               'Contrasena' => $this->Contraseña,
+               'Contrasena' => $this->Contrasena,
                'PromocionesFavoritas' => $this->PromocionesFavoritas,
                'EmpresasFavoritas' => $this->EmpresasFavoritas,
                'Compras' => $this->Compras
@@ -122,7 +127,6 @@ class Usuario{
 
     echo '{"codigoResultado":1, "mensaje":"Usuario eliminado con exito"}';
 }
-    
 
     /**
      * Get the value of codigoUsuario
@@ -305,23 +309,21 @@ class Usuario{
     }
 
     /**
-     * Get the value of Contraseña
+     * Get the value of Contrasena
      */ 
-    public function getContraseña()
+    public function getContrasena()
     {
-        return $this->Contraseña;
+            return $this->Contrasena;
     }
-
     /**
-     * Set the value of Contraseña
+     * Set the value of Contrasena
      *
      * @return  self
      */ 
-    public function setContraseña($Contraseña)
+    public function setContrasena($Contrasena)
     {
-        $this->Contraseña = $Contraseña;
-
-        return $this;
+            $this->Contrasena = $Contrasena;
+            return $this;
     }
 
     /**
@@ -383,6 +385,38 @@ class Usuario{
 
         return $this;
     }
+
+    /**
+     * Get the value of Correo
+     */ 
+    public function getCorreo()
+    {
+        return $this->Correo;
+    }
+
+    /**
+     * Set the value of Correo
+     *
+     * @return  self
+     */ 
+    public function setCorreo($Correo)
+    {
+        $this->Correo = $Correo;
+
+        return $this;
+    }
+
+    public static function verificarUsuario($email, $password){
+        $contenidoArchivoUsuarios = file_get_contents('../data/usuarios.json');
+        $usuarios = json_decode($contenidoArchivoUsuarios, true);
+        for($i=0; $i<sizeof($usuarios); $i++){
+            if($usuarios[$i]["Correo"]==$email && $usuarios[$i]["Contrasena"]==$password){
+                return $usuarios[$i];
+            }
+        }
+        return null;
+    }
+
 }
 
 ?>

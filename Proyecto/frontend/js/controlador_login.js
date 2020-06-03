@@ -1,65 +1,27 @@
 var activo = false;
-var empresas = [];
-const url = '../../Proyecto/backend/api/empresas.php';
-function obtenerEmpresas(){
+
+function login(){
     axios({
-        method:'GET',
-        url:url,
-        responseType:'json'
+        url:"../../Proyecto/backend/api/login.php",
+        method:"post",
+        responseType: "json",
+        data:{
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value
+        }
     }).then(res=>{
-        console.log(res.data);
-        this.empresas = res.data;
-    }).catch(error=>{
-        console.error(error);
+        if(res.data.codigoResultado==1){
+            window.location.href = "Inicio_Clientes.php";
+        }else{
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('error').innerHTML = res.data.mensaje;
+        }
+            
+        console.log(res);
+    }).catch(err=>{
+        console.log(err);
     });
 }
-obtenerEmpresas();
-
-var usuarios = [];
-const url2 = '../../Proyecto/backend/api/usuarios.php';
-function obtenerUsuarios(){
-    axios({
-        method:'GET',
-        url:url2,
-        responseType:'json'
-    }).then(res=>{
-        console.log(res.data);
-        this.usuarios = res.data;
-    }).catch(error=>{
-        console.error(error);
-    });
-}
-obtenerUsuarios();
-
-var superUsuarios = [];
-const url3 = '../../Proyecto/backend/api/superUsuarios.php';
-function obtenerSuperUsuarios(){
-    axios({
-        method:'GET',
-        url:url3,
-        responseType:'json'
-    }).then(res=>{
-        console.log(res.data);
-        this.superUsuarios = res.data;
-    }).catch(error=>{
-        console.error(error);
-    });
-}
-obtenerSuperUsuarios();
-
-/*------------Aqui hago uso de localStorage para guardar informacion de login--------- */
-var datosuser;
-var localStorage = window.localStorage;
-
-if(localStorage.getItem("datosuser") ==null){
-    datosuser= [
-        
-               ];
-             localStorage.setItem("datosuser", JSON.stringify(datosuser));
-            }else{
-                datosuser = JSON.parse(localStorage.getItem('datosuser'));
-            }
-
 
 /*---------- Esta funcion llena el texto de bienvenida--------*/
 function Bienvenida(){
@@ -76,9 +38,10 @@ function Bienvenida(){
                  <div id="mas_info" style="display: none;"></div>
                  <p><a class="btn btn-primary btn-lg" href="#" onclick="verMas()">Leer más &raquo;</a></p>
                  <form class="form" id="form">
-                 <input value="" id="username" type="text" class="form-control" placeholder="Ingrese usuario" required><br>
-                 <input value="" id="password" type="password" placeholder="Ingrese Contraseña" required><br><br>
-                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="verificarUsuario()">Iniciar</button><br><br>
+                 <input type="text" class="form-control nr-sm-2" id="email" type="text" placeholder="Email"><br>
+                 <input type="password" class="form-control nr-sm-2" id="password" type="text" placeholder="Password"><br>
+                 <button class="btn btn-primary my-2 my-sm-0" type="button" onclick="login();">Login</button><br><br>
+                 <div class="alert alert-danger" id="error" style="display: none;"></div>
                  <h6 class="comment-name by-author"><a href="Crear_Cuenta.html">Crear cuenta</a></h6>
                  </form>
                 `;
@@ -101,70 +64,3 @@ function verMas(){
     }
 }
 
-/*----------------- Seguridad para el login ------------------*/     
-if(datosuser[0] != null){
-    location.href = datosuser[0].direccion;
-}
-
-
-/*---------------------Sirve para verificar el tipo de acceso--------------------*/
-function verificarUsuario(){
-    const usu = document.getElementById('username').value;
-    const pas = document.getElementById('password').value;
-
-    if(usu == superUsuarios[0].usuario && pas == superUsuarios[0].contrasena){
-            let admin = {
-                Nombre:'Super Usuario',
-                primerApendice:0,
-                direccion:'Inicio_SuperAdministrador.html'
-            };
-            datosuser.push(admin);
-            localStorage.setItem('datosuser',JSON.stringify(datosuser));
-            location.href = "Inicio_SuperAdministrador.html";
-    }
-    else if(usu != superUsuarios[0].usuario && pas != superUsuarios[0].contrasena)
-    {
-        console.log("No pude acceder");
-    }
-
-    /*------- Ciclo for para recorrer el arreglo guardado en localstorage y conseguir el apendice del cliente --------*/
-    for(let i=0;i<usuarios.length;i++){
-        const usuario = usuarios[i];
-        if(usu == usuario.Usuario && pas == usuario.Contrasena){
-            const segundo = i;
-            let clientes = {
-                nombre:'Cliente',
-                primerApendice:JSON.stringify(segundo),
-                direccion:'Inicio_Clientes.html'
-            };
-            datosuser.push(clientes);
-            localStorage.setItem('datosuser',JSON.stringify(datosuser));
-            location.href = "Inicio_Clientes.html";
-        }
-        else if(usu != usuario.Usuario && pas != usuario.Contrasena)
-        {
-            console.log("No pude acceder");
-        }
-    }
-
-    /*------- Ciclo for para recorrer el arreglo guardado en localstorage y conseguir el apendice de la empresa ---------*/
-    for(let i=0;i<empresas.length;i++){
-        const empresa = empresas[i];
-        if(usu == empresa.Usuario && pas == empresa.Contrasena){
-            const segundo = i;
-            let empres = {
-                Nombre:'Empresa',
-                primerApendice:JSON.stringify(segundo),
-                direccion:'Inicio_Empresas.html'
-            };
-            datosuser.push(empres);
-            localStorage.setItem('datosuser',JSON.stringify(datosuser));
-            location.href = "Inicio_Empresas.html";
-            
-        }
-        else if(usu != empresa.Usuario && pas != empresa.Contrasena)
-        {
-            console.log("No pude acceder");
-        }
-    }
-}

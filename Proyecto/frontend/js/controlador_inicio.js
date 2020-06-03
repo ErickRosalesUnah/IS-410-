@@ -1,16 +1,3 @@
-/*------------Aqui hago uso de localStorage para guardar informacion de login--------- */
-var datosuser;
-var localStorage = window.localStorage;
-
-if(localStorage.getItem("datosuser") ==null){
-    datosuser= [
-        
-               ];
-             localStorage.setItem("datosuser", JSON.stringify(datosuser));
-            }else{
-                datosuser = JSON.parse(localStorage.getItem('datosuser'));
-            }
-
 var activo = false;
 var empresas = [];
 const url = '../../Proyecto/backend/api/empresas.php';
@@ -28,38 +15,6 @@ function obtenerEmpresas(){
     });
 }
 obtenerEmpresas();
-
-var usuarios = [];
-const url2 = '../../Proyecto/backend/api/usuarios.php';
-function obtenerUsuarios(){
-    axios({
-        method:'GET',
-        url:url2,
-        responseType:'json'
-    }).then(res=>{
-        console.log(res.data);
-        this.usuarios = res.data;
-    }).catch(error=>{
-        console.error(error);
-    });
-}
-obtenerUsuarios();
-
-var superUsuarios = [];
-const url3 = '../../Proyecto/backend/api/superUsuarios.php';
-function obtenerSuperUsuarios(){
-    axios({
-        method:'GET',
-        url:url3,
-        responseType:'json'
-    }).then(res=>{
-        console.log(res.data);
-        this.superUsuarios = res.data;
-    }).catch(error=>{
-        console.error(error);
-    });
-}
-obtenerSuperUsuarios();
 
 /*---------- Esta funcion llena el texto de bienvenida--------*/
 function Bienvenida(){
@@ -115,10 +70,4 @@ function generarLista(){
         `;
     }
 }
-
-/*----------------- Seguridad para el login ------------------ */    
-if(datosuser[0] != null){
-    location.href = datosuser[0].direccion;
-}
-
 

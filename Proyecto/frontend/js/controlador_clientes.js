@@ -1,5 +1,14 @@
-var client = JSON.parse(localStorage.getItem('datosuser'));
-var parametro1 = client[0].primerApendice;
+function getCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0;i < ca.length;i++) {
+      var c = ca[i];
+      while (c.charAt(0)==' ') c = c.substring(1,c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  }
+  return null;
+}
+var parametro1 = getCookie("codigoUsuario") - 1;
 var pri;
 var arregloProduc;
 
@@ -13,6 +22,7 @@ function obtenerEmpresas(){
     }).then(res=>{
         console.log(res.data);
         this.empresas = res.data;
+        console.log(parametro1);
     }).catch(error=>{
         console.error(error);
     });
@@ -68,18 +78,6 @@ function obtenerProductosComprados(){
 }
 obtenerProductosComprados();
 
-/*------------Aqui hago uso de localStorage para guardar informacion de login--------- */
-var elementosCarrito;
-var localStorage = window.localStorage;
-
-if(localStorage.getItem("elementosCarrito") ==null){
-  elementosCarrito= [
-        
-               ];
-             localStorage.setItem("elementosCarrito", JSON.stringify(elementosCarrito));
-            }else{
-              elementosCarrito = JSON.parse(localStorage.getItem('elementosCarrito'));
-            }
 
 /*------------------- Esta funcion sirve para dar la bienvenida --------------------*/
 function generarDatos(){
@@ -97,21 +95,16 @@ function generarBotonsalir(){
   document.getElementById("form-clientes").innerHTML += 
   `   <button class="btn btn-outline-success mr-sm-2" id="botonOrdenes" data-toggle="modal" data-target="#CarritoModal" type="submit" onclick="verOrdenes()">Carrito</button>
       <input class="form-control mr-sm-2" type="text" placeholder="Buscador" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" id="preventbutton" type="submit" href="index.html" onclick="cerrarCuenta()">Cerrar Cuenta</button>
+      <button class="btn btn-primary my-2 my-sm-0" type="button" onclick="cerrar()">Cerrar</button>  
   `;
 }
 generarBotonsalir();
 
-/*------------------- Esta funcion sirve para salir de la cuenta cliente --------------------*/
-function cerrarCuenta(){
-  location.href = "index.html";
-  localStorage.removeItem('datosuser');
+function cerrar(){
+  window.location.href = "logoutUsuario.php"; 
 }
 
 /*------------------- Esta funcion sirve para descactivar el refresh en los botones --------------------*/
-document.getElementById("preventbutton").addEventListener("click", function(event){
-  event.preventDefault()
-});
 document.getElementById("botonOrdenes").addEventListener("click", function(event){
   event.preventDefault()
 });

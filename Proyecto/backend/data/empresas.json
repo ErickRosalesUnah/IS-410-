@@ -1,1 +1,304 @@
-[{"codigoEmpresa":1,"Empresa":"Todo en Zapatos","Pais":"Honduras","Direccion":"Tegucigalpa","Latitud":14.1,"Longitud":"-87.216714\u00b0 6\u2032 0\u2033 Norte, 87\u00b0 13\u2032 0\u2033 Oeste ","Banner":"","Logotipo":"img\/Logotipos\/TodoenZapatos.jpg","Usuario":"TodoenZapatos","Contrasena":"TodoenZapatos","Sucursales":[],"Productos":[{"codigoEmpresa":1,"codigoProducto":1,"imagen":"img\/Zapatos\/Zapato1.jpg","NombreProducto":"Zapato Beige","Descripcion":"Zapato de cuero color beige con una textura rugosa por fuera, la parte interior es muy comoda y su peso es ligero","Precio":1500,"PrecioPromocion":1300,"Promocion":"20%"},{"codigoEmpresa":1,"codigoProducto":2,"imagen":"img\/Zapatos\/Zapato2.jpg","NombreProducto":"Zapato Negro","Descripcion":"Zapato de cuero color negro con una textura lisa por fuera, la parte interior es muy comoda y su peso es ligero","Precio":1200,"PrecioPromocion":1020,"Promocion":"15%"},{"codigoEmpresa":1,"codigoProducto":3,"imagen":"img\/Zapatos\/Zapato3.jpg","NombreProducto":"Zapato Rojos","Descripcion":"Zapato de cuero color rojo con una textura lisa por fuera, la parte interior es muy comoda y su peso es ligero","Precio":2000,"PrecioPromocion":1200,"Promocion":"40%"}]},{"codigoEmpresa":2,"Empresa":"Magic","Pais":"Honduras","Direccion":"Tegucigalpa","Latitud":14.1,"Longitud":"-87.216714\u00b0 6\u2032 0\u2033 Norte, 87\u00b0 13\u2032 0\u2033 Oeste ","Banner":"","Logotipo":"img\/Logotipos\/Magic.jpg","Usuario":"Magic","Contrasena":"Magic","Sucursales":[],"Productos":[{"codigoEmpresa":2,"codigoProducto":1,"imagen":"img\/Sandalias\/Sandalias.jpg","NombreProducto":"Sandalias de Plataforma","Descripcion":"Sandalias de Plataforma de tres colores beige oscuro y claro con un azul marino, son muy comodas y su peso es ligero","Precio":2100,"PrecioPromocion":1575,"Promocion":"25%"},{"codigoEmpresa":2,"codigoProducto":2,"imagen":"img\/Sandalias\/Sandalias2.jpg","NombreProducto":"Sandalias de Plataforma de tela","Descripcion":"Sandalias de Plataforma de tela con diversos colores, son muy comodas y su peso es ligero","Precio":2500,"PrecioPromocion":1500,"Promocion":"40%"},{"codigoEmpresa":2,"codigoProducto":3,"imagen":"img\/Sandalias\/Sandalias3.jpg","NombreProducto":"Sandalias de Plataforma de cuero","Descripcion":"Sandalias de Plataforma de cuero oscuro con una textura rugosa por fuera, la parte interior es muy comoda y su peso es ligero","Precio":2300,"PrecioPromocion":1840,"Promocion":"20%"}]},{"codigoEmpresa":3,"Empresa":"Man","Pais":"Honduras","Direccion":"Tegucigalpa","Latitud":14.1,"Longitud":"-87.216714\u00b0 6\u2032 0\u2033 Norte, 87\u00b0 13\u2032 0\u2033 Oeste ","Banner":"","Logotipo":"img\/Logotipos\/Man.jpg","Usuario":"Man","Contrasena":"Man","Sucursales":[],"Productos":[{"codigoEmpresa":3,"codigoProducto":1,"imagen":"img\/RopaHombre\/RopaHombre.jpg","NombreProducto":"Combinacion 1","Descripcion":"Consta de un sueter negro con un chaleco jeans azul y un pantalo jeans negro","Precio":2100,"PrecioPromocion":1890,"Promocion":"10%"},{"codigoEmpresa":3,"codigoProducto":2,"imagen":"img\/RopaHombre\/RopaHombre2.jpg","NombreProducto":"Combinacion 2","Descripcion":"Consta de una centro negro con una manga larga color negro y un pantalon jeans azul oscuro","Precio":2000,"PrecioPromocion":1700,"Promocion":"15%"},{"codigoEmpresa":3,"codigoProducto":3,"imagen":"img\/RopaHombre\/RopaHombre3.jpg","NombreProducto":"Combinacion 3","Descripcion":"Consta de un centro de color con un sueter color gris oscuro y un pantalon de tela color gris claro","Precio":2300,"PrecioPromocion":1725,"Promocion":"25%"}]},{"codigoEmpresa":4,"Empresa":"Melissa","Pais":"Honduras","Direccion":"Tegucigalpa","Latitud":"14.1","Longitud":"-87.216714\u00b0 6\u2032 0\u2033 Norte, 87\u00b0 13\u2032 0\u2033 Oeste ","Banner":"","Logotipo":"img\/Logotipos\/Melissa.jpg","Usuario":"Melissa","Contrasena":"Melissa","Sucursales":[],"Productos":[{"codigoEmpresa":4,"codigoProducto":1,"imagen":"img\/RopaMujer\/RopaMujer.jpg","NombreProducto":"Combinacion 1","Descripcion":"Consta de una blusa de color rosa con un pantalon jeans azul y unos zapatos de tacon alto color rosa","Precio":3000,"PrecioPromocion":2400,"Promocion":"20%"},{"codigoEmpresa":4,"codigoProducto":2,"imagen":"img\/RopaMujer\/RopaMujer2.jpg","NombreProducto":"Combinacion 2","Descripcion":"Consta de un de dos piezas con un color moteado y un par de tennies blancos","Precio":2100,"PrecioPromocion":1890,"Promocion":"10%"},{"codigoEmpresa":4,"codigoProducto":3,"imagen":"img\/RopaMujer\/RopaMujer3.jpg","NombreProducto":"Combinacion 3","Descripcion":"Consta de un conjunto deportivo formado por una blusa negra y pantalon leggins jeans de colores con unos tennies de color negro","Precio":2300,"PrecioPromocion":1909,"Promocion":"17%"}]},{"codigoEmpresa":5,"Empresa":"Retro","Pais":"Honduras","Direccion":"Tegucigalpa","Latitud":14.1,"Longitud":"-87.216714\u00b0 6\u2032 0\u2033 Norte, 87\u00b0 13\u2032 0\u2033 Oeste ","Banner":"","Logotipo":"img\/Logotipos\/Retro.jpg","Usuario":"Retro","Contrasena":"Retro","Sucursales":[],"Productos":[{"codigoEmpresa":5,"codigoProducto":1,"imagen":"img\/RetroConsolas\/Retro.jpg","NombreProducto":"Nintendo 64","Descripcion":"Consola de los a\u00f1os 90, si quieres revivir esos tiempos de infancia esta es la consola que buscabas, viene acompa\u00f1ada con un control y un juego","Precio":2000,"PrecioPromocion":1400,"Promocion":"40%"},{"codigoEmpresa":5,"codigoProducto":2,"imagen":"img\/RetroConsolas\/Retro2.jpg","NombreProducto":"Super Nintendo","Descripcion":"Consola de principio a\u00f1os 90, si quieres revivir esos tiempos de infancia esta es la consola que buscabas, viene acompa\u00f1ada con dos controles y 5 juegos","Precio":1500,"PrecioPromocion":1200,"Promocion":"20%"},{"codigoEmpresa":5,"codigoProducto":3,"imagen":"img\/RetroConsolas\/Retro3.jpg","NombreProducto":"PlayStation 1","Descripcion":"Consola de mediados de los a\u00f1os 90, si quieres revivir esos tiempos de infancia esta es la consola que buscabas, viene acompa\u00f1ada con un control y 3 juegos","Precio":3000,"PrecioPromocion":1950,"Promocion":"35%"},{"codigoEmpresa":5,"codigoProducto":4,"imagen":"img\/RetroConsolas\/Retro.jpg","NombreProducto":"Nintendo","Descripcion":"Lo que se te ocurra","Precio":"2000","PrecioPromocion":1800,"Promocion":"10%"}]},{"codigoEmpresa":6,"Empresa":"YourPhone","Pais":"Honduras","Direccion":"Tegucigalpa","Latitud":14.1,"Longitud":"-87.216714\u00b0 6\u2032 0\u2033 Norte, 87\u00b0 13\u2032 0\u2033 Oeste ","Banner":"","Logotipo":"img\/Logotipos\/YourPhone.jpg","Usuario":"YourPhone","Contrasena":"YourPhone","Sucursales":[],"Productos":[{"codigoEmpresa":6,"codigoProducto":1,"imagen":"img\/Celulares\/IphoneX.jpg","NombreProducto":"Celular Iphone X","Descripcion":"El iPhone X cuenta con una pantalla llamada Super Retina HD4\u200b de 5.8 pulgadas de tipo OLED que cubre los espacios de color DCI-P3 y sRGB, y adem\u00e1s es compatible con im\u00e1genes de alto rango din\u00e1mico (HDR). Tambi\u00e9n incluye la tecnolog\u00eda True Tone que se encuentra en el iPad Pro y otros dispositivos de la compa\u00f1\u00eda, y cuenta con un brillo m\u00e1ximo t\u00edpico de 625 cd\/m2.","Precio":21000,"PrecioPromocion":18900,"Promocion":"10%"},{"codigoEmpresa":6,"codigoProducto":2,"imagen":"img\/Celulares\/IphoneXI.jpg","NombreProducto":"Celular Iphone XI","Descripcion":"Pantalla de 6.1 pulgadas con resoluci\u00f3n Liquid Retina y potenciado por un procesador Apple A13 Bionic con 64GB, 128GB o 256GB de almacenamiento interno.","Precio":28000,"PrecioPromocion":23800,"Promocion":"15%"},{"codigoEmpresa":6,"codigoProducto":3,"imagen":"img\/Celulares\/S10-PLUS.jpg","NombreProducto":"Celular Samsung S10 Plus","Descripcion":"El Samsung Galaxy S10+ es el m\u00e1s poderoso de la serie Galaxy S10. Con una pantalla AMOLED QHD+ de 6.4 pulgadas, el Galaxy S10+ est\u00e1 potenciado por el procesador Exynos 9820 octa-core o Snapdragon 855, con opciones de 6GB o 12GB de RAM y 128GB, 512GB o 1TB de almacenamiento.","Precio":26000,"PrecioPromocion":23400,"Promocion":"10%"}]},{"codigoEmpresa":7,"Empresa":"Canarios","Pais":"Honduras","Direccion":"San Pedro Sula","Latitud":"15.505312706954385","Longitud":"-88.02301835183745","Banner":"img\/NuevasEmpresas\/canariosbanner.jpg","Logotipo":"img\/NuevasEmpresas\/canarios.jpg","Usuario":"canarios","Contrasena":"canarios","Sucursales":[],"Productos":[]}]
+[
+  {
+    "codigoEmpresa": 1,
+    "Empresa": "Todo en Zapatos",
+    "Pais": "Honduras",
+    "Direccion": "Tegucigalpa",
+    "Latitud": 14.1,
+    "Longitud": "-87.216714\u00b0 6\u2032 0\u2033 Norte, 87\u00b0 13\u2032 0\u2033 Oeste ",
+    "Banner": "",
+    "Logotipo": "img/Logotipos/TodoenZapatos.jpg",
+    "Usuario": "TodoenZapatos",
+    "Contrasena": "TodoenZapatos",
+    "Sucursales": [],
+    "Productos": [
+      {
+        "codigoEmpresa": 1,
+        "codigoProducto": 1,
+        "imagen": "img/Zapatos/Zapato1.jpg",
+        "NombreProducto": "Zapato Beige",
+        "Descripcion": "Zapato de cuero color beige con una textura rugosa por fuera, la parte interior es muy comoda y su peso es ligero",
+        "Precio": 1500,
+        "PrecioPromocion": 1300,
+        "Promocion": "20%"
+      },
+      {
+        "codigoEmpresa": 1,
+        "codigoProducto": 2,
+        "imagen": "img/Zapatos/Zapato2.jpg",
+        "NombreProducto": "Zapato Negro",
+        "Descripcion": "Zapato de cuero color negro con una textura lisa por fuera, la parte interior es muy comoda y su peso es ligero",
+        "Precio": 1200,
+        "PrecioPromocion": 1020,
+        "Promocion": "15%"
+      },
+      {
+        "codigoEmpresa": 1,
+        "codigoProducto": 3,
+        "imagen": "img/Zapatos/Zapato3.jpg",
+        "NombreProducto": "Zapato Rojos",
+        "Descripcion": "Zapato de cuero color rojo con una textura lisa por fuera, la parte interior es muy comoda y su peso es ligero",
+        "Precio": 2000,
+        "PrecioPromocion": 1200,
+        "Promocion": "40%"
+      }
+    ]
+  },
+  {
+    "codigoEmpresa": 2,
+    "Empresa": "Magic",
+    "Pais": "Honduras",
+    "Direccion": "Tegucigalpa",
+    "Latitud": 14.1,
+    "Longitud": "-87.216714\u00b0 6\u2032 0\u2033 Norte, 87\u00b0 13\u2032 0\u2033 Oeste ",
+    "Banner": "",
+    "Logotipo": "img/Logotipos/Magic.jpg",
+    "Usuario": "Magic",
+    "Contrasena": "Magic",
+    "Sucursales": [],
+    "Productos": [
+      {
+        "codigoEmpresa": 2,
+        "codigoProducto": 1,
+        "imagen": "img/Sandalias/Sandalias.jpg",
+        "NombreProducto": "Sandalias de Plataforma",
+        "Descripcion": "Sandalias de Plataforma de tres colores beige oscuro y claro con un azul marino, son muy comodas y su peso es ligero",
+        "Precio": 2100,
+        "PrecioPromocion": 1575,
+        "Promocion": "25%"
+      },
+      {
+        "codigoEmpresa": 2,
+        "codigoProducto": 2,
+        "imagen": "img/Sandalias/Sandalias2.jpg",
+        "NombreProducto": "Sandalias de Plataforma de tela",
+        "Descripcion": "Sandalias de Plataforma de tela con diversos colores, son muy comodas y su peso es ligero",
+        "Precio": 2500,
+        "PrecioPromocion": 1500,
+        "Promocion": "40%"
+      },
+      {
+        "codigoEmpresa": 2,
+        "codigoProducto": 3,
+        "imagen": "img/Sandalias/Sandalias3.jpg",
+        "NombreProducto": "Sandalias de Plataforma de cuero",
+        "Descripcion": "Sandalias de Plataforma de cuero oscuro con una textura rugosa por fuera, la parte interior es muy comoda y su peso es ligero",
+        "Precio": 2300,
+        "PrecioPromocion": 1840,
+        "Promocion": "20%"
+      }
+    ]
+  },
+  {
+    "codigoEmpresa": 3,
+    "Empresa": "Man",
+    "Pais": "Honduras",
+    "Direccion": "Tegucigalpa",
+    "Latitud": 14.1,
+    "Longitud": "-87.216714\u00b0 6\u2032 0\u2033 Norte, 87\u00b0 13\u2032 0\u2033 Oeste ",
+    "Banner": "",
+    "Logotipo": "img/Logotipos/Man.jpg",
+    "Usuario": "Man",
+    "Contrasena": "Man",
+    "Sucursales": [],
+    "Productos": [
+      {
+        "codigoEmpresa": 3,
+        "codigoProducto": 1,
+        "imagen": "img/RopaHombre/RopaHombre.jpg",
+        "NombreProducto": "Combinacion 1",
+        "Descripcion": "Consta de un sueter negro con un chaleco jeans azul y un pantalo jeans negro",
+        "Precio": 2100,
+        "PrecioPromocion": 1890,
+        "Promocion": "10%"
+      },
+      {
+        "codigoEmpresa": 3,
+        "codigoProducto": 2,
+        "imagen": "img/RopaHombre/RopaHombre2.jpg",
+        "NombreProducto": "Combinacion 2",
+        "Descripcion": "Consta de una centro negro con una manga larga color negro y un pantalon jeans azul oscuro",
+        "Precio": 2000,
+        "PrecioPromocion": 1700,
+        "Promocion": "15%"
+      },
+      {
+        "codigoEmpresa": 3,
+        "codigoProducto": 3,
+        "imagen": "img/RopaHombre/RopaHombre3.jpg",
+        "NombreProducto": "Combinacion 3",
+        "Descripcion": "Consta de un centro de color con un sueter color gris oscuro y un pantalon de tela color gris claro",
+        "Precio": 2300,
+        "PrecioPromocion": 1725,
+        "Promocion": "25%"
+      }
+    ]
+  },
+  {
+    "codigoEmpresa": 4,
+    "Empresa": "Melissa",
+    "Pais": "Honduras",
+    "Direccion": "Tegucigalpa",
+    "Latitud": "14.1",
+    "Longitud": "-87.216714\u00b0 6\u2032 0\u2033 Norte, 87\u00b0 13\u2032 0\u2033 Oeste ",
+    "Banner": "",
+    "Logotipo": "img/Logotipos/Melissa.jpg",
+    "Usuario": "Melissa",
+    "Contrasena": "Melissa",
+    "Sucursales": [],
+    "Productos": [
+      {
+        "codigoEmpresa": 4,
+        "codigoProducto": 1,
+        "imagen": "img/RopaMujer/RopaMujer.jpg",
+        "NombreProducto": "Combinacion 1",
+        "Descripcion": "Consta de una blusa de color rosa con un pantalon jeans azul y unos zapatos de tacon alto color rosa",
+        "Precio": 3000,
+        "PrecioPromocion": 2400,
+        "Promocion": "20%"
+      },
+      {
+        "codigoEmpresa": 4,
+        "codigoProducto": 2,
+        "imagen": "img/RopaMujer/RopaMujer2.jpg",
+        "NombreProducto": "Combinacion 2",
+        "Descripcion": "Consta de un de dos piezas con un color moteado y un par de tennies blancos",
+        "Precio": 2100,
+        "PrecioPromocion": 1890,
+        "Promocion": "10%"
+      },
+      {
+        "codigoEmpresa": 4,
+        "codigoProducto": 3,
+        "imagen": "img/RopaMujer/RopaMujer3.jpg",
+        "NombreProducto": "Combinacion 3",
+        "Descripcion": "Consta de un conjunto deportivo formado por una blusa negra y pantalon leggins jeans de colores con unos tennies de color negro",
+        "Precio": 2300,
+        "PrecioPromocion": 1909,
+        "Promocion": "17%"
+      }
+    ]
+  },
+  {
+    "codigoEmpresa": 5,
+    "Empresa": "Retro",
+    "Pais": "Honduras",
+    "Direccion": "Tegucigalpa",
+    "Latitud": 14.1,
+    "Longitud": "-87.216714\u00b0 6\u2032 0\u2033 Norte, 87\u00b0 13\u2032 0\u2033 Oeste ",
+    "Banner": "",
+    "Logotipo": "img/Logotipos/Retro.jpg",
+    "Usuario": "Retro",
+    "Contrasena": "Retro",
+    "Sucursales": [],
+    "Productos": [
+      {
+        "codigoEmpresa": 5,
+        "codigoProducto": 1,
+        "imagen": "img/RetroConsolas/Retro.jpg",
+        "NombreProducto": "Nintendo 64",
+        "Descripcion": "Consola de los a\u00f1os 90, si quieres revivir esos tiempos de infancia esta es la consola que buscabas, viene acompa\u00f1ada con un control y un juego",
+        "Precio": 2000,
+        "PrecioPromocion": 1400,
+        "Promocion": "40%"
+      },
+      {
+        "codigoEmpresa": 5,
+        "codigoProducto": 2,
+        "imagen": "img/RetroConsolas/Retro2.jpg",
+        "NombreProducto": "Super Nintendo",
+        "Descripcion": "Consola de principio a\u00f1os 90, si quieres revivir esos tiempos de infancia esta es la consola que buscabas, viene acompa\u00f1ada con dos controles y 5 juegos",
+        "Precio": 1500,
+        "PrecioPromocion": 1200,
+        "Promocion": "20%"
+      },
+      {
+        "codigoEmpresa": 5,
+        "codigoProducto": 3,
+        "imagen": "img/RetroConsolas/Retro3.jpg",
+        "NombreProducto": "PlayStation 1",
+        "Descripcion": "Consola de mediados de los a\u00f1os 90, si quieres revivir esos tiempos de infancia esta es la consola que buscabas, viene acompa\u00f1ada con un control y 3 juegos",
+        "Precio": 3000,
+        "PrecioPromocion": 1950,
+        "Promocion": "35%"
+      },
+      {
+        "codigoEmpresa": 5,
+        "codigoProducto": 4,
+        "imagen": "img/RetroConsolas/Retro.jpg",
+        "NombreProducto": "Nintendo",
+        "Descripcion": "Lo que se te ocurra",
+        "Precio": "2000",
+        "PrecioPromocion": 1800,
+        "Promocion": "10%"
+      }
+    ]
+  },
+  {
+    "codigoEmpresa": 6,
+    "Empresa": "YourPhone",
+    "Pais": "Honduras",
+    "Direccion": "Tegucigalpa",
+    "Latitud": 14.1,
+    "Longitud": "-87.216714\u00b0 6\u2032 0\u2033 Norte, 87\u00b0 13\u2032 0\u2033 Oeste ",
+    "Banner": "",
+    "Logotipo": "img/Logotipos/YourPhone.jpg",
+    "Usuario": "YourPhone",
+    "Contrasena": "YourPhone",
+    "Sucursales": [],
+    "Productos": [
+      {
+        "codigoEmpresa": 6,
+        "codigoProducto": 1,
+        "imagen": "img/Celulares/IphoneX.jpg",
+        "NombreProducto": "Celular Iphone X",
+        "Descripcion": "El iPhone X cuenta con una pantalla llamada Super Retina HD4\u200b de 5.8 pulgadas de tipo OLED que cubre los espacios de color DCI-P3 y sRGB, y adem\u00e1s es compatible con im\u00e1genes de alto rango din\u00e1mico (HDR). Tambi\u00e9n incluye la tecnolog\u00eda True Tone que se encuentra en el iPad Pro y otros dispositivos de la compa\u00f1\u00eda, y cuenta con un brillo m\u00e1ximo t\u00edpico de 625 cd/m2.",
+        "Precio": 21000,
+        "PrecioPromocion": 18900,
+        "Promocion": "10%"
+      },
+      {
+        "codigoEmpresa": 6,
+        "codigoProducto": 2,
+        "imagen": "img/Celulares/IphoneXI.jpg",
+        "NombreProducto": "Celular Iphone XI",
+        "Descripcion": "Pantalla de 6.1 pulgadas con resoluci\u00f3n Liquid Retina y potenciado por un procesador Apple A13 Bionic con 64GB, 128GB o 256GB de almacenamiento interno.",
+        "Precio": 28000,
+        "PrecioPromocion": 23800,
+        "Promocion": "15%"
+      },
+      {
+        "codigoEmpresa": 6,
+        "codigoProducto": 3,
+        "imagen": "img/Celulares/S10-PLUS.jpg",
+        "NombreProducto": "Celular Samsung S10 Plus",
+        "Descripcion": "El Samsung Galaxy S10+ es el m\u00e1s poderoso de la serie Galaxy S10. Con una pantalla AMOLED QHD+ de 6.4 pulgadas, el Galaxy S10+ est\u00e1 potenciado por el procesador Exynos 9820 octa-core o Snapdragon 855, con opciones de 6GB o 12GB de RAM y 128GB, 512GB o 1TB de almacenamiento.",
+        "Precio": 26000,
+        "PrecioPromocion": 23400,
+        "Promocion": "10%"
+      }
+    ]
+  },
+  {
+    "codigoEmpresa": 7,
+    "Empresa": "Canarios",
+    "Pais": "Honduras",
+    "Direccion": "San Pedro Sula",
+    "Latitud": "15.505312706954385",
+    "Longitud": "-88.02301835183745",
+    "Banner": "img/NuevasEmpresas/canariosbanner.jpg",
+    "Logotipo": "img/NuevasEmpresas/canarios.jpg",
+    "Usuario": "canarios",
+    "Contrasena": "canarios",
+    "Sucursales": [
+      {
+        "codigoEmpresa": 7,
+        "codigoSucursal": 1,
+        "nombreSucursal": "Pollito asado",
+        "longitud": "-86.57551147095016",
+        "latitud": "15.483574129189336"
+      }
+    ],
+    "Productos": []
+  }
+]

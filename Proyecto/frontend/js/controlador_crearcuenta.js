@@ -108,6 +108,7 @@ function formulario(parametro){
                  <h2>${tipoCuentas[parametro].tipo}</h2>
                  Nombre:<input value="" id="nombre" type="text" placeholder="Usuario"><br>
                  Apellido:<input value="" id="apellido" type="text" placeholder="Apellido"><br>
+                 Correo Electronico:<input value="" id="correo" type="text" placeholder="Correo"><br>
                  Edad:<input id="edad" type="number" name="numero" value="0" min="0" max="100" step="1"><br>
                  Pais:<input value="" id="pais" type="text" placeholder="Pais"><br>
                  Ciudad:<input value="" id="ciudad" type="text" placeholder="Ciudad"><br>
@@ -238,6 +239,7 @@ function guardarUsuario(usu){
         codigoUsuario: usuarios.length + 1,
         Nombre:document.getElementById('nombre').value,
         Apellido:document.getElementById('apellido').value,
+        Correo:document.getElementById('correo').value,
         Edad:document.getElementById('edad').value,
         Pais:document.getElementById('pais').value,
         Ciudad:document.getElementById('ciudad').value,
