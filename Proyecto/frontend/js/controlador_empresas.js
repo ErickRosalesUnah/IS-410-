@@ -131,6 +131,7 @@ function Bienvenida(){
                  </div>
      <h1>Cambiar Datos <button class="btn btn-outline-success my-2 my-sm-0" id="" type="submit" onclick="Bienvenida()">Salir</button></h1>
                   Empresa:<input value="" id="empresa" type="text" placeholder="Empresa"><br>
+                  Correo Electronico:<input value="" id="correo" type="text" placeholder="Correo"><br>
                   Pais:<select id="pais" type="text">
                             <option value="Honduras">Honduras</option>
                        </select><br>
@@ -157,6 +158,7 @@ function Bienvenida(){
                      `;
                  }
        document.getElementById('empresa').value = empresas[parametro1].Empresa;
+       document.getElementById('correo').value = empresas[parametro1].Correo;
        document.getElementById('pais').value = empresas[parametro1].Pais;
        document.getElementById('direccion').value = empresas[parametro1].Direccion;
        document.getElementById('latitud').value = empresas[parametro1].Latitud;
@@ -231,6 +233,7 @@ function modificarlocal(){
     let guardaremp = {
         codigoEmpresa: empresas[parametro1].codigoEmpresa,
         Empresa:document.getElementById('empresa').value,
+        Correo:document.getElementById('correo').value,
         Pais:document.getElementById('pais').value,
         Direccion:basedatos[document.getElementById('direccion').value].ciudad,
         Latitud:document.getElementById('latitud').value,
@@ -434,6 +437,7 @@ function guardarSucursal(){
     let guardaremp = {
         codigoEmpresa: empresas[parametro1].codigoEmpresa,
         Empresa:empresas[parametro1].Empresa,
+        Correo:empresas[parametro1].Correo,
         Pais:empresas[parametro1].Pais,
         Direccion:empresas[parametro1].Direccion,
         Latitud:empresas[parametro1].Latitud,
@@ -505,6 +509,7 @@ function modificarlocal2(){
     let guardaremp = {
         codigoEmpresa: empresas[parametro1].codigoEmpresa,
         Empresa:empresas[parametro1].Empresa,
+        Correo:empresas[parametro1].Correo,
         Pais:empresas[parametro1].Pais,
         Direccion:empresas[parametro1].Direccion,
         Latitud:empresas[parametro1].Latitud,
@@ -692,6 +697,7 @@ function elimSucursal(){
     let guardaremp = {
         codigoEmpresa: empresas[parametro1].codigoEmpresa,
         Empresa:empresas[parametro1].Empresa,
+        Correo:empresas[parametro1].Correo,
         Pais:empresas[parametro1].Pais,
         Direccion:empresas[parametro1].Direccion,
         Latitud:empresas[parametro1].Latitud,
@@ -786,6 +792,7 @@ function elimProducto(seg){
     let guardaremp = {
         codigoEmpresa: empresas[parametro1].codigoEmpresa,
         Empresa:empresas[parametro1].Empresa,
+        Correo:empresas[parametro1].Correo,
         Pais:empresas[parametro1].Pais,
         Direccion:empresas[parametro1].Direccion,
         Latitud:empresas[parametro1].Latitud,
@@ -814,28 +821,37 @@ function elimProducto(seg){
 
 /*----------------------------Aqui empieza Actualizacion de Productos------------------------------- */
 function ActualizarProducto(){
-    document.getElementById("containerBienvenida").innerHTML = '';
-    document.getElementById("containerBienvenida").innerHTML += 
-           `<h1 class="display-3">Bienvenido a ${empresas[parametro1].Empresa}!</h1>
-            <h3>¿A que producto deseas hacerle una modificacion?<h3>
-           `;
-    document.getElementById("ProductosContenedor").innerHTML = '';
-    document.getElementById("ProductosContenedor").innerHTML += 
-    `<h5>Seleccion el producto: <h5>
-     <select id="usuario-actual" class="form-control" style="width: 200px;" onchange="cambiarProducto()">
-     </select>
-    `;
-             for(let i=0; i<empresas[parametro1].Productos.length; i++){
-                const productos = empresas[parametro1].Productos[i];
-                document.getElementById("usuario-actual").innerHTML += 
-                ` <option value="${i}">${productos.NombreProducto}</option>
-                `;
-             }
-             document.getElementById("ProductosContenedor").innerHTML += 
-             `<div id="formulario">
-              </div>
-             `;
-    document.getElementById('usuario-actual').value = null;
+    if(empresas[parametro1].Productos == ""){
+        document.getElementById("containerBienvenida").innerHTML = '';
+        document.getElementById("containerBienvenida").innerHTML += 
+               `<h1 class="display-3">Bienvenido a ${empresas[parametro1].Empresa}!</h1>
+                <h3>No tienes productos para actualizar<h3>
+               `;
+        document.getElementById("ProductosContenedor").innerHTML = '';
+    }else{
+        document.getElementById("containerBienvenida").innerHTML = '';
+        document.getElementById("containerBienvenida").innerHTML += 
+               `<h1 class="display-3">Bienvenido a ${empresas[parametro1].Empresa}!</h1>
+                <h3>¿A que producto deseas hacerle una modificacion?<h3>
+               `;
+        document.getElementById("ProductosContenedor").innerHTML = '';
+        document.getElementById("ProductosContenedor").innerHTML += 
+        `<h5>Seleccion el producto: <h5>
+         <select id="usuario-actual" class="form-control" style="width: 200px;" onchange="cambiarProducto()">
+         </select>
+        `;
+                 for(let i=0; i<empresas[parametro1].Productos.length; i++){
+                    const productos = empresas[parametro1].Productos[i];
+                    document.getElementById("usuario-actual").innerHTML += 
+                    ` <option value="${i}">${productos.NombreProducto}</option>
+                    `;
+                 }
+                 document.getElementById("ProductosContenedor").innerHTML += 
+                 `<div id="formulario">
+                  </div>
+                 `;
+        document.getElementById('usuario-actual').value = null;
+    }
 }
 
 function cambiarProducto(){
@@ -890,6 +906,7 @@ function modificarlocal3(numpro){
     let guardaremp = {
         codigoEmpresa: empresas[parametro1].codigoEmpresa,
         Empresa:empresas[parametro1].Empresa,
+        Correo:empresas[parametro1].Correo,
         Pais:empresas[parametro1].Pais,
         Direccion:empresas[parametro1].Direccion,
         Latitud:empresas[parametro1].Latitud,

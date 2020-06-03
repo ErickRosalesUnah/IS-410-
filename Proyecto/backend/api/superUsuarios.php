@@ -1,7 +1,22 @@
 <?php
+    session_start();
     header("Content-Type: application/json");
     include_once("../class/class-superUsuario.php");
     $_POST = json_decode(file_get_contents('php://input'), true);
+
+    if(!isset($_SESSION["token"])){
+        echo '{"Acceso no Autorizado"}';
+        exit;
+       }
+       if(!isset($_COOKIE["token"])){
+        echo '{"Acceso no Autorizado"}';
+        exit;
+       }
+       if($_SESSION["token"] != $_COOKIE["token"]){
+        echo '{"Acceso no Autorizado"}';
+        exit;
+       }
+
     switch($_SERVER['REQUEST_METHOD']){
         case 'POST': //Guardar
             $superUsuario = new SuperUsuario(
