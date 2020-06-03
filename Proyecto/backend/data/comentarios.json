@@ -1,0 +1,41 @@
+[
+  {
+    "codigoEmpresa": 1,
+    "codigoProducto": 1,
+    "codigoComentario": 1,
+    "NombreComentario": "Helen",
+    "ApellidoComentario": "Fuentes",
+    "imagenC": "img/Usuarios/Persona2.jpg",
+    "Tiempo": 10,
+    "Principal": "Este articulo me parece bonito me gustaria que pusieran mas articulos en promocion de este tipo",
+    "ComentarioS": [
+      {
+        "codigoComentarioS": 1,
+        "NombreComentarioS": "Jose",
+        "ApellidoComentarioS": "Rosales",
+        "imagenC": "img/Usuarios/Persona1.jpg",
+        "Tiempo": 15,
+        "Secundario": "Ya tienen mas articulos en promocion en su perfil"
+      },
+      {
+        "codigoComentarioS": 2,
+        "NombreComentarioS": "Helen",
+        "ApellidoComentarioS": "Fuentes",
+        "imagenC": "img/Usuarios/Persona2.jpg",
+        "Tiempo": 16,
+        "Secundario": "Es bueno saber que revisan los comentarios"
+      }
+    ]
+  },
+  {
+    "codigoEmpresa": 1,
+    "codigoProducto": 1,
+    "codigoComentario": 2,
+    "NombreComentario": "Jose",
+    "ApellidoComentario": "Rosales",
+    "imagenC": "img/Usuarios/Persona1.jpg",
+    "Tiempo": 20,
+    "Principal": "Me gusta lo que tienen en esta empresa",
+    "ComentarioS": []
+  }
+]

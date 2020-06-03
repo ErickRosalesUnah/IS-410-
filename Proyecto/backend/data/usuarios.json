@@ -1,0 +1,32 @@
+[
+  {
+    "codigoUsuario": 1,
+    "Nombre": "Carlos",
+    "Apellido": "Rosales",
+    "Edad": "24",
+    "Pais": "Honduras",
+    "Ciudad": "Tegucigalpa",
+    "Genero": "Masculino",
+    "Foto": "img/Usuarios/Persona1.jpg",
+    "Usuario": "jos24",
+    "Contrasena": "jos24",
+    "PromocionesFavoritas": [],
+    "EmpresasFavoritas": [],
+    "Compras": []
+  },
+  {
+    "codigoUsuario": 2,
+    "Nombre": "Ledith",
+    "Apellido": "Fuentes",
+    "Edad": "25",
+    "Pais": "Honduras",
+    "Ciudad": "Olanchito",
+    "Genero": "Femenino",
+    "Foto": "img/Usuarios/Persona2.jpg",
+    "Usuario": "helfue25",
+    "Contrasena": "helfue25",
+    "PromocionesFavoritas": [],
+    "EmpresasFavoritas": [],
+    "Compras": []
+  }
+]

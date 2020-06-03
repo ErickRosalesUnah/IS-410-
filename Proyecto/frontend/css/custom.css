@@ -1,0 +1,117 @@
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body{
+  background-color:#FAFAFA;
+}
+
+.container {
+  max-width: 960px;
+}
+
+.pricing-header {
+  max-width: 700px;
+}
+
+.card-deck .card {
+  min-width: 220px;
+}
+
+.img-thumbnail{
+  max-width: 45px;
+  padding: 0.20rem;
+}
+
+.card-header{
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+.image-post{
+  width:100%; 
+  height:500px;
+  background-color:rgb(245, 184, 184);
+  background-size:cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.historia-image-post{
+  width:100%; 
+  height:250px;
+  background-color:rgb(245, 184, 184);
+  background-size:cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.muted{
+  color:rgb(168, 168, 168);
+  font-size:10px;
+}
+
+.story-card{
+  line-height: 1;
+}
+
+.fl{
+  float: left;
+}
+
+.fr{
+  float: right;
+}
+
+.post{
+  line-height: 1.2;
+}
+
+.post-user{
+  font-weight: bold;
+  font-size:13px;
+  line-height: 1;
+}
+
+.post-content{
+  font-size:13px;
+  line-height: 1;
+}
+
+
+.comment-user{
+  font-weight: bold;
+  font-size:13px;
+  line-height: 1;
+}
+
+.comment-content{
+  font-size:13px;
+  line-height: 1;
+}
+
+.img-thumbnail-historia{
+  border: 2px solid #ff0062;
+}
+
+.pointer{
+  cursor:pointer;
+}
+
+.historia-titulo{
+  background-color:rgba(0, 0, 0, 0.52);
+  color:white;
+  padding:10px;
+  font-weight:bold;
+  font-size:12px;
+  bottom: 0;  
+}
+
+.historia{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
