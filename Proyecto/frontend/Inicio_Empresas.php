@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="css/all.css"><!--FontAwesome-->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/morris.css">
 </head>
 <body>
@@ -37,7 +38,7 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="Inicio_Empresas.html">Rápido Ventas<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="Inicio_Empresas.php">Rápido Ventas<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opciones</a>

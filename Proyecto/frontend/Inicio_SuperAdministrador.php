@@ -33,7 +33,14 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="Inicio_SuperAdministrador.html">Rápido Ventas<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="Inicio_SuperAdministrador.php">Rápido Ventas<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opciones</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" onclick="eliminarUsuario()" name="" href="#">Eliminar Usuario</a>
+            <a class="dropdown-item" onclick="eliminarEmpresa()" name="" href="#">Eliminar Empresa</a>
+          </div>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0" id="form-super">
@@ -45,39 +52,19 @@
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
-      <div class="container">
-        <h1 class="display-3">Hola SuperAdministrador!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+      <div class="container" id="containerBienvenida">
+        
       </div>
     </div>
   
     <div class="container">
       <!-- Example row of columns -->
-      <div class="row" id="lista-empresas">
+      <div class="row" id="Contenedor">
         
       </div>
-  
       <hr>
-  
     </div> <!-- /container -->
-
-    <div class="jumbotron" id="productos-lista" style="display: none;">
-      <div class="container" >
-        <h1 class="display-3">Planes para Empresas!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <h1 class="display-3" id="descripcion-productos"></h1>
-      </div>
-    </div>
-
-    <div class="container" id="productos-lista2" style="display: none;">
-      <!-- Example row of columns -->
-      <div class="row" id="contenedor-productos">
-        
-      </div>
   
-      <hr>
-  
-    </div> <!-- /container -->
   </main>
   
   <footer class="container">

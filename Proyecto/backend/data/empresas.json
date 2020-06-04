@@ -284,20 +284,5 @@
         "Promocion": "10%"
       }
     ]
-  },
-  {
-    "codigoEmpresa": 7,
-    "Empresa": "Canarios Domesticos",
-    "Correo": "canarios@gmail.com",
-    "Pais": "Honduras",
-    "Direccion": "La Ceiba",
-    "Latitud": "15.785485773410585",
-    "Longitud": "-86.78890669045931",
-    "Banner": "img/NuevasEmpresas/canariosbanner.jpg",
-    "Logotipo": "img/NuevasEmpresas/canarioAmarillo.jpg",
-    "Usuario": "canarios",
-    "Contrasena": "canarios",
-    "Sucursales": [],
-    "Productos": []
   }
 ]

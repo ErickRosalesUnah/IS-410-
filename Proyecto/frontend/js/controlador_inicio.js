@@ -9,7 +9,6 @@ function obtenerEmpresas(){
     }).then(res=>{
         console.log(res.data);
         this.empresas = res.data;
-        generarLista();
     }).catch(error=>{
         console.error(error);
     });
@@ -51,23 +50,6 @@ function verMas(){
     else if(activo == true){
         document.getElementById('mas_info').style.display = 'none';
         activo = false;
-    }
-}
-
-/*---------- Esta funcion genera las listas de empresas--------*/
-function generarLista(){
-    let apendice = 1;
-    seleproductos = apendice;
-    document.getElementById("lista-empresas").innerHTML = '';
-    for(let i =0; i<empresas.length;i++){
-        const empresa = empresas[i];
-        document.getElementById("lista-empresas").innerHTML += 
-        `<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-         <img src="${empresa.Logotipo}" class="card-img-top" alt="...">
-         <h2>${empresa.Empresa}</h2>
-         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-         </div>
-        `;
     }
 }
 

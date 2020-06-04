@@ -59,6 +59,22 @@ function obtenerBasedatos(){
 }
 obtenerBasedatos();
 
+var comentariosJSON = [];
+const url4 = '../../Proyecto/backend/api/comentarios.php';
+function obtenerCometarios(){
+    axios({
+        method:'GET',
+        url:url4,
+        responseType:'json'
+    }).then(res=>{
+        console.log(res.data);
+        this.comentariosJSON = res.data;
+    }).catch(error=>{
+        console.error(error);
+    });
+}
+obtenerCometarios();
+
 //Llave para MapBox incluir siempre
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2Fpcm96IiwiYSI6ImNrYXdodXl5YjA2eWEzMG53cnoxc3ZhbGwifQ.Lf842_jS0uwqSKaWrjnZ-w';
 
@@ -105,12 +121,101 @@ function Bienvenida(){
                     <p>Precio: Lps.${productos.Precio}</p>
                     <p>Precio Promocion: Lps.${productos.PrecioPromocion}</p>
                     <p>Promocion: Descuento del ${productos.Promocion}</p>
-                    <p><a class="btn btn-secondary" role="button">Ver Comentarios &raquo;</a></p>
+                    <p><a class="btn btn-secondary" role="button" onclick="comentarios(${i})">Ver Comentarios &raquo;</a></p>
                  </div>
                 `;
                 }
                 
              }
+  }
+
+
+  function comentarios(valor){
+    const np = valor;
+    let comen = valor;
+    let historialComentarios = comentariosJSON.filter(item=>{
+      return item.codigoEmpresa == empresas[parametro1].codigoEmpresa && item.codigoProducto == empresas[parametro1].Productos[valor].codigoProducto;
+    });
+
+    if(historialComentarios == ''){
+        productoSeleccionado = empresas[parametro1].Productos[valor];
+        document.getElementById("containerBienvenida").innerHTML = '';
+        document.getElementById("containerBienvenida").innerHTML += 
+                 `
+                    <h2>!!Este producto no tiene comentarios!!<h2>
+                 `;
+        document.getElementById("ProductosContenedor").innerHTML = '';
+        document.getElementById("ProductosContenedor").innerHTML += 
+        `<div class="col-lg-4 col-md-6 col-sm-6 col-12" style="display: block;">
+            <button class="btn btn-primary my-2 my-sm-0" type="button" onclick="Bienvenida()">Volver</button>
+            <img src="${productoSeleccionado.imagen}" class="card-img-top" alt="...">
+            <h2>${productoSeleccionado.NombreProducto}</h2>
+            <p>Descripcion: <br>${productoSeleccionado.Descripcion}</p>
+            <p>Precio: Lps.${productoSeleccionado.Precio}</p>
+            <p>Precio en Promocion: Lps.${productoSeleccionado.PrecioPromocion}</p>
+            <p>Promocion: ${productoSeleccionado.Promocion}</p>
+         </div>
+        `;
+    }else{
+        productoSeleccionado = empresas[parametro1].Productos[valor];
+        document.getElementById("containerBienvenida").innerHTML = '';
+        document.getElementById("containerBienvenida").innerHTML += 
+                 `
+                    <h2>!!Estos son los comentarios hechos a este producto!!<h2>
+                 `;
+        document.getElementById("ProductosContenedor").innerHTML = '';
+        document.getElementById("ProductosContenedor").innerHTML += 
+        `<div class="col-lg-4 col-md-6 col-sm-6 col-12" style="display: block;">
+            <button class="btn btn-primary my-2 my-sm-0" type="button" onclick="Bienvenida()">Volver</button>
+            <img src="${productoSeleccionado.imagen}" class="card-img-top" alt="...">
+            <h2>${productoSeleccionado.NombreProducto}</h2>
+            <p>Descripcion: <br>${productoSeleccionado.Descripcion}</p>
+            <p>Precio: Lps.${productoSeleccionado.Precio}</p>
+            <p>Precio en Promocion: Lps.${productoSeleccionado.PrecioPromocion}</p>
+            <p>Promocion: ${productoSeleccionado.Promocion}</p>
+         </div>
+        `;
+        cargarComentarios(np);
+        }
+  }
+
+  function cargarComentarios(valor){
+    let comen = valor;
+    let historialComentarios = comentariosJSON.filter(item=>{
+      return item.codigoEmpresa == empresas[parametro1].codigoEmpresa && item.codigoProducto == empresas[parametro1].Productos[valor].codigoProducto;
+    });
+    console.log(historialComentarios);
+    document.getElementById("ProductosContenedor").innerHTML += 
+    `<div id="comments-container" class="comments-container">
+        <h1>Comentarios<a href="">www.RapidoVentas.com </a></h1>
+        </p>
+        <ul id="comments-list" class="comments-list">
+        </ul>
+    </div>`;
+            document.getElementById("comments-list").innerHTML = '';
+            for(let i=0;i<historialComentarios.length;i++){
+              const comment = historialComentarios[i];
+              document.getElementById("comments-list").innerHTML += 
+              `<li id="lista_comentarios">
+                  <div class="comment-main-level">
+                    <!-- Avatar -->
+                    <div class="comment-avatar"><img src="${comment.imagenC}" alt=""></div>
+                    <!-- Contenedor Comentario -->
+                    <div class="comment-box">
+                      <div class="comment-head">
+                        <h6 class="comment-name by-author"><a href="">${comment.NombreComentario} ${comment.ApellidoComentario}</a></h6>
+                        <span>hace ${comment.Tiempo}min</span>
+                        <i class="fas fa-reply"></i>
+                        <i class="fas fa-heart"></i>
+                      </div>
+                      <div class="comment-content">
+                      ${comment.Principal}
+                      </div>
+                    </div>
+                  </div>
+              </li>
+              `;
+            }
   }
 /*----------------------------Desde aqui empieza Actualizar Perfil------------------------------- */
   function ActualizarPerfil(){
