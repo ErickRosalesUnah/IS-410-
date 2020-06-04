@@ -20,14 +20,22 @@ function Bienvenida(){
     /*---------- Añadimos elementos al div con este id--------*/
     document.getElementById("form_button").innerHTML = '';
     document.getElementById("form_button").innerHTML += 
-                 `<a class="btn btn-primary btn-lg" href="Inicio_Sesion.html" onclick="inicio()">Inicio Sesion</a>
+                 `<a class="btn btn-outline-success btn-lg" href="Inicio_Sesion.html" onclick="inicio()">Inicio Sesion</a>
                  `;
     document.getElementById("container_principal").innerHTML = '';
     document.getElementById("container_principal").innerHTML += 
                 `<h1 class="display-3">Bienvenido a Rápido Ventas!</h1>
-                 <p>Informacion sobre la empresa....  This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+                 <p>Informacion sobre la empresa....  
+                    This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p><br>
+                <h3>Todo lo que puedes estar buscando en ofertas lo tenemos aqui</h3>
+                <p>En Rapido Ventas....  
+                    This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
+                    This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
+                    This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
+                    This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
+                    This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
                  <div id="mas_info" style="display: none;"></div>
-                 <p><a class="btn btn-primary btn-lg" href="#" onclick="verMas()">Leer más &raquo;</a></p>
+                 <p><a class="btn btn-outline-success btn-lg" href="#" onclick="verMas()">Leer más &raquo;</a></p>
                 `;
 }
 Bienvenida();

@@ -107,7 +107,7 @@ function viaje(){
     `;
     document.getElementById("Contenedor").innerHTML = '';
     document.getElementById("Contenedor").innerHTML += 
-    `<div class="col-lg-4 col-md-6 col-sm-6 col-sm-12 col-12" id="" style="display: block;">
+    `
         <img src="img/Pagina/img.jpg" class="card-img-top" alt="...">
         <button class="btn btn-primary my-2 my-sm-0" type="button" onclick="generarDatos()">Volver</button>
         <p>Si hay un sector que ha tenido que modificar totalmente el planteamiento de su modelo de negocio, ese es el sector de las agencias de viajes. La irrupción de Internet cambió para siempre las formas de comprar billetes de tren, de avión e incluso paquetes turísticos. Pero, al mismo tiempo, el auge del low cost multiplicó el número de viajeros. Por eso merece la pena plantear el plan de empresa de una agencia de viajes, que puede ser un negocio rentable, especialmente con algo de especialización</p>
@@ -121,7 +121,7 @@ function viaje(){
         <p>Tras una gran caída de las ventas de las agencias minoristas entre 2007 y 2009, la situación se ha ido estabilizando y recuperando año tras año, aunque el peso de las agencias tradicionales sigue disminuyendo frente a las ventas por Internet, que en 2018 representaban un 33% del total de ventas minoristas de las agencias de viajes.</p>
         <img src="img/Pagina/img1.jpg" class="card-img-top" alt="...">
         <p>Sin embargo, hablamos de un mercado minorista (Internet excluido) de casi 10.000 millones de euros de facturación en España en 2018, lo que significa que hay lugar para empresas innovadoras y especializadas con locales a pie de calle.</p>
-</div>
+
     `;
 }
 
@@ -132,8 +132,7 @@ function ropa(){
     `;
     document.getElementById("Contenedor").innerHTML = '';
     document.getElementById("Contenedor").innerHTML += 
-    `<div class="col-lg-4 col-md-6 col-sm-6 col-sm-12 col-12" id="" style="display: block;">
-        <img src="img/Pagina/ropa.jpg" class="card-img-top" alt="...">
+    `<img src="img/Pagina/ropa.jpg" class="card-img-top" alt="...">
         <button class="btn btn-primary my-2 my-sm-0" type="button" onclick="generarDatos()">Volver</button>
         <p>Montar una tienda de ropa es una de las formas más comunes de emprender en España, y por este motivo hemos decidido preparar este artículo explicativo de ejemplo de plan de empresa para esta actividad. Desde el planteamiento de la idea de negocio hasta la estimación de ventas y los resultados, la lectura de este post es una gran ayuda para cualquiera que quiera abrir una tienda de ropa.</p>
         <h3>Planteamiento de la idea de negocio</h3>
@@ -145,7 +144,6 @@ function ropa(){
         <img src="img/RopaMujer/RopaMujer.jpg" class="card-img-top" alt="...">
         <h3>Equipo promotor del proyecto</h3>
         <p>Para este tipo de negocio, lo ideal es tener a un promotor con experiencia en la moda, mejor aún si puede combinar la experiencia en venta y en diseño de ropa. Hay que ser muy consciente de que las pequeñas tiendas generalistas están desapareciendo a favor del crecimiento de las grandes cadenas y marcas, y conocer el funcionamiento de esas empresas líderes es una ventaja para poder competir contra ellas.</p>
-     </div>
      `;
 }
 
@@ -156,7 +154,7 @@ function hotel(){
     `;
     document.getElementById("Contenedor").innerHTML = '';
     document.getElementById("Contenedor").innerHTML += 
-    `<div class="col-lg-4 col-md-6 col-sm-6 col-sm-12 col-12" id="" style="display: block;">
+    `
         <img src="img/Pagina/imgh.jpg" class="card-img-top" alt="...">
         <button class="btn btn-primary my-2 my-sm-0" type="button" onclick="generarDatos()">Volver</button>
         <p>El turismo ha sido durante la crisis una de las vías de crecimiento para la economía española. Después de unos años de consolidación, ahora el volumen de negocio de los hoteles es bastante alto, pese a la competencia de nuevos formatos. Vamos a plantear el plan de negocio para un establecimiento hotelero, una oportunidad para montar una empresa, especialmente en las zonas de sol y playa, pero no exclusivamente. Datos actualizados en mayo 2019.</p>
@@ -171,7 +169,7 @@ function hotel(){
         <p>Antes de pensar en abrir un nuevo hotel, es fundamental estudiar la competencia en la zona. Los datos del INE dan referencias interesantes de las provincias más idóneas para un nuevo establecimiento, pero en realidad hay que hacer un estudio más pormenorizado, por áreas concretas. Puede suceder que haya sobreoferta de habitaciones en una ciudad, pero que falten hoteles en general en la provincia y viceversa.
 
         Hay que destacar que el INE tiene datos para áreas turísticas, incluso para puntos turísticos (ciudades), que pueden ser de ayuda para saber la capacidad hotelera y los ratios de ocupación, y encontrar huecos donde ubicar un nuevo hotel.</p>
-     </div>
+
      `;
 }
   

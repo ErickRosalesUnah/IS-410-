@@ -84,7 +84,7 @@ function generarBotonsalir(){
     document.getElementById("form-empresas").innerHTML = '';
     document.getElementById("form-empresas").innerHTML += 
     `
-    <button class="btn btn-primary my-2 my-sm-0" type="button" onclick="cerrar()">Cerrar</button>  
+    <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="cerrar()">Cerrar</button>  
     `;
   }
   generarBotonsalir();
@@ -109,7 +109,7 @@ function Bienvenida(){
                     <h2>${productos.NombreProducto}</h2>
                     <p>${productos.Descripcion}</p>
                     <p>Precio: Lps.${productos.Precio}</p>
-                    <p><a class="btn btn-secondary" role="button">Ver Comentarios &raquo;</a></p>
+                    <p><a class="btn btn-outline-success" role="button">Ver Comentarios &raquo;</a></p>
                  </div>
                 `;
                 }else if(productos.PrecioPromocion != ""){
@@ -121,7 +121,7 @@ function Bienvenida(){
                     <p>Precio: Lps.${productos.Precio}</p>
                     <p>Precio Promocion: Lps.${productos.PrecioPromocion}</p>
                     <p>Promocion: Descuento del ${productos.Promocion}</p>
-                    <p><a class="btn btn-secondary" role="button" onclick="comentarios(${i})">Ver Comentarios &raquo;</a></p>
+                    <p><a class="btn btn-outline-success" role="button" onclick="comentarios(${i})">Ver Comentarios &raquo;</a></p>
                  </div>
                 `;
                 }
@@ -147,7 +147,7 @@ function Bienvenida(){
         document.getElementById("ProductosContenedor").innerHTML = '';
         document.getElementById("ProductosContenedor").innerHTML += 
         `<div class="col-lg-4 col-md-6 col-sm-6 col-12" style="display: block;">
-            <button class="btn btn-primary my-2 my-sm-0" type="button" onclick="Bienvenida()">Volver</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="Bienvenida()">Volver</button>
             <img src="${productoSeleccionado.imagen}" class="card-img-top" alt="...">
             <h2>${productoSeleccionado.NombreProducto}</h2>
             <p>Descripcion: <br>${productoSeleccionado.Descripcion}</p>
@@ -166,7 +166,7 @@ function Bienvenida(){
         document.getElementById("ProductosContenedor").innerHTML = '';
         document.getElementById("ProductosContenedor").innerHTML += 
         `<div class="col-lg-4 col-md-6 col-sm-6 col-12" style="display: block;">
-            <button class="btn btn-primary my-2 my-sm-0" type="button" onclick="Bienvenida()">Volver</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="Bienvenida()">Volver</button>
             <img src="${productoSeleccionado.imagen}" class="card-img-top" alt="...">
             <h2>${productoSeleccionado.NombreProducto}</h2>
             <p>Descripcion: <br>${productoSeleccionado.Descripcion}</p>

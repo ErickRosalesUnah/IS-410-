@@ -1,0 +1,8 @@
+[
+  { "ciudad": "Olanchito", "lng": -86.56916, "lat": 15.48231 },
+  { "ciudad": "La Ceiba", "lng": -86.791031, "lat": 15.78371 },
+  { "ciudad": "Saba", "lng": -86.223953, "lat": 15.52137 },
+  { "ciudad": "San Pedro Sula", "lng": -88.024971, "lat": 15.50523 },
+  { "ciudad": "Tegucigalpa", "lng": -87.192139, "lat": 14.072275 },
+  { "ciudad": "Comayagua", "lng": -87.643066, "lat": 14.46023 }
+]

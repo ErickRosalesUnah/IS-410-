@@ -84,7 +84,7 @@ function generarDatos(){
      document.getElementById("bienvenida").innerHTML = '';
      document.getElementById("bienvenida").innerHTML +=
      `<h1 class="display-3">Bienvenid@, ${usuarios[parametro1].Nombre} ${usuarios[parametro1].Apellido}!</h1>
-      <img src="${usuarios[parametro1].Foto}" width="50" height="200" class="card-img-top" alt="...">
+      <img src="${usuarios[parametro1].Foto}" class="card-img-top" alt="...">
      `;
      document.getElementById("ContenedorCliente").innerHTML = '';
 }
@@ -95,7 +95,7 @@ function generarBotonsalir(){
   document.getElementById("form-clientes").innerHTML += 
   `   <button class="btn btn-outline-success mr-sm-2" id="botonOrdenes" data-toggle="modal" data-target="#CarritoModal" type="submit" onclick="verOrdenes()">Carrito</button>
       <input class="form-control mr-sm-2" type="text" placeholder="Buscador" aria-label="Search">
-      <button class="btn btn-primary my-2 my-sm-0" type="button" onclick="cerrar()">Cerrar</button>  
+      <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="cerrar()">Cerrar</button>  
   `;
 }
 generarBotonsalir();

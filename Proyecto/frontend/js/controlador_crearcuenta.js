@@ -18,7 +18,7 @@ function obtenerTipos(){
 obtenerTipos();
 
 var empresas = [];
-const url2 = '../../Proyecto/backend/api/empresas.php';
+const url2 = '../../Proyecto/backend/api/empresasCrear.php';
 function obtenerEmpresas(){
     axios({
         method:'GET',
@@ -27,6 +27,7 @@ function obtenerEmpresas(){
     }).then(res=>{
         console.log(res.data);
         this.empresas = res.data;
+        console.log(empresas.length);
     }).catch(error=>{
         console.error(error);
     });
@@ -34,7 +35,7 @@ function obtenerEmpresas(){
 obtenerEmpresas();
 
 var usuarios = [];
-const url3 = '../../Proyecto/backend/api/usuarios.php';
+const url3 = '../../Proyecto/backend/api/usuariosCrear.php';
 function obtenerUsuarios(){
     axios({
         method:'GET',
@@ -43,6 +44,7 @@ function obtenerUsuarios(){
     }).then(res=>{
         console.log(res.data);
         this.usuarios = res.data;
+        console.log(usuarios.length);
     }).catch(error=>{
         console.error(error);
     });
@@ -83,14 +85,14 @@ function BienvenidaCrearCuenta(){
          <img src="${tipoCuenta.foto}" class="card-img-top" alt="...">
          <h2>${tipoCuenta.tipo}</h2>
          <p>${tipoCuenta.descripcion}</p>
-         <p><a class="btn btn-secondary" role="button" onclick="formulario(${i})">Crear &raquo;</a></p>
+         <p><a class="btn btn-outline-success" role="button" onclick="formulario(${i})">Crear &raquo;</a></p>
          </div>
         `;
     }
     document.getElementById("form_button").innerHTML = '';
     document.getElementById("form_button").innerHTML += 
-                 `<a class="btn btn-primary btn-lg" href="index.html" onclick="">Principal</a>
-                  <a class="btn btn-primary btn-lg" href="Inicio_Sesion.html" onclick="">Inicio Sesion</a>
+                 `<a class="btn btn-outline-success btn-lg" href="index.html" onclick="">Principal</a>
+                  <a class="btn btn-outline-success btn-lg" href="Inicio_Sesion.html" onclick="">Inicio Sesion</a>
                  `;
 }
 
@@ -121,8 +123,8 @@ function formulario(parametro){
                  </form>
                  Usuario:<input value="" id="usuario" type="text" placeholder="Usuario"><br>
                  Contraseña:<input value="" id="contraseña" type="text" placeholder="Contraseña"><br>
-                 <a class="btn btn-secondary" role="button" onclick="guardarUsuario(${parametro})">Guardar &raquo;</a><br><br>
-                 <a class="btn btn-secondary" role="button" onclick="volver(${parametro})">Volver &raquo;</a>
+                 <a class="btn btn-outline-success" role="button" onclick="guardarUsuario(${parametro})">Guardar &raquo;</a><br><br>
+                 <a class="btn btn-outline-success" role="button" onclick="volver(${parametro})">Volver &raquo;</a>
                  `;
                  document.getElementById('genero').value = "";
     }
@@ -156,9 +158,9 @@ function formulario(parametro){
                  </form>
                  Usuario:<input value="" id="usuario" type="text" placeholder="Usuario"><br>
                  Contraseña:<input value="" id="contraseña" type="password" placeholder="Password"><br>
-                 <a class="btn btn-secondary" role="button" onclick="guardarEmpresas(${parametro})">Guardar &raquo;</a><br><br>
+                 <a class="btn btn-outline-success" role="button" onclick="guardarEmpresas(${parametro})">Guardar &raquo;</a><br><br>
 
-                 <a class="btn btn-secondary" role="button" onclick="volver(${parametro})">Volver &raquo;</a>
+                 <a class="btn btn-outline-success" role="button" onclick="volver(${parametro})">Volver &raquo;</a>
                  </div>
                  `;
                  document.getElementById('direccion').innerHTML = '';
