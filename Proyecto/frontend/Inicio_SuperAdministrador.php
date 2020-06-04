@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
+
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="#"><img width="30" height="30" src="img/Pagina/Logo2.png"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
